@@ -119,10 +119,10 @@ function ActivityCard() {
 
 /* Skill progress bars */
 const skills = [
-  { label: 'Full Stack Web', pct: 92, color: 'from-primary-purple to-violet-400' },
-  { label: 'SAP BTP / ABAP', pct: 88, color: 'from-amber-500 to-orange-400' },
-  { label: 'SAP Fiori / UI5', pct: 85, color: 'from-primary-blue to-cyan-400' },
-  { label: 'Joule AI / HANA', pct: 80, color: 'from-green-500 to-emerald-400' },
+  { label: 'Full Stack Web', color: 'from-primary-purple to-violet-400' },
+  { label: 'SAP BTP / ABAP', color: 'from-amber-500 to-orange-400' },
+  { label: 'SAP Fiori / UI5', color: 'from-primary-blue to-cyan-400' },
+  { label: 'Joule AI / HANA', color: 'from-green-500 to-emerald-400' },
 ];
 
 function SkillCard() {
@@ -141,19 +141,9 @@ function SkillCard() {
       <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-3">Skills</p>
       <div className="space-y-2.5">
         {skills.map((s, i) => (
-          <div key={s.label}>
-            <div className="flex justify-between mb-1">
-              <span className="text-[11px] text-gray-300">{s.label}</span>
-              <span className="text-[11px] text-gray-500">{s.pct}%</span>
-            </div>
-            <div className="h-1.5 w-full rounded-full bg-white/[0.06]">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: animated ? `${s.pct}%` : 0 }}
-                transition={{ delay: i * 0.15, duration: 0.8, ease: 'easeOut' }}
-                className={`h-full rounded-full bg-gradient-to-r ${s.color}`}
-              />
-            </div>
+          <div key={s.label} className="flex items-center gap-2.5">
+            <div className={`h-2 w-2 rounded-full bg-gradient-to-r ${s.color}`} />
+            <span className="text-[11px] text-gray-300">{s.label}</span>
           </div>
         ))}
       </div>
