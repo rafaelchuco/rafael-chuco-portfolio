@@ -33,7 +33,7 @@ export default function Navbar() {
         isScrolled ? 'border-b border-white/10 bg-[#0D1117]/72 backdrop-blur-2xl' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4 lg:py-5">
+      <div className="w-full px-8 py-4 lg:px-16 lg:py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.a

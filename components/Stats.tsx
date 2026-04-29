@@ -18,14 +18,14 @@ const stats = [
   },
   {
     icon: Award,
-    value: 'Full',
-    label: 'stack de punta a punta',
+    value: 'Full stack',
+    label: 'frontend y backend',
     color: 'purple'
   },
   {
     icon: MapPin,
-    value: 'PE',
-    label: 'base en Lima, trabajo remoto',
+    value: 'Lima',
+    label: 'base en Perú, trabajo remoto',
     color: 'blue'
   }
 ];
@@ -39,7 +39,7 @@ export default function Stats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid gap-5 md:grid-cols-2 xl:grid-cols-4"
+          className="grid gap-5 md:grid-cols-2 lg:grid-cols-4"
         >
           {stats.map((stat, index) => {
             const Icon = stat.icon;

@@ -17,9 +17,9 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
-          className="relative order-2 flex justify-center lg:order-1 lg:justify-start"
+          className="relative order-2 flex justify-center lg:order-1 lg:justify-start lg:items-end"
         >
-          <div className="relative h-[360px] w-[360px] sm:h-[460px] sm:w-[460px] lg:h-[620px] lg:w-[620px] xl:h-[720px] xl:w-[720px]">
+          <div className="relative w-full max-w-[600px] sm:max-w-[700px] lg:max-w-full" style={{ height: '85vh', minHeight: '560px' }}>
             {/* Image container */}
             <div className="relative w-full h-full">
               <Image
@@ -59,7 +59,7 @@ export default function Hero() {
               transition={{ delay: 0.25, duration: 0.6 }}
               className="space-y-5"
             >
-              <h1 className="text-5xl font-semibold leading-[0.92] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+              <h1 className="text-6xl font-semibold leading-[0.9] tracking-[-0.04em] text-white sm:text-7xl lg:text-8xl xl:text-[7rem]">
                 Rafael Chuco
               </h1>
               <div className="h-px w-32 bg-gradient-to-r from-primary-purple via-primary-blue to-transparent" />
