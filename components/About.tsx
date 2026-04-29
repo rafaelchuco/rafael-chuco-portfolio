@@ -71,6 +71,36 @@ export default function About() {
           </h2>
         </motion.div>
 
+        {/* Laptop image */}
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.9, ease: 'easeOut' }}
+          className="relative flex justify-center mb-16"
+        >
+          {/* Glow under laptop */}
+          <motion.div
+            animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.08, 1] }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-24 bg-primary-purple/25 rounded-full blur-3xl pointer-events-none"
+          />
+          <motion.div
+            animate={{ y: [-8, 8, -8] }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+            className="relative max-w-lg w-full drop-shadow-[0_32px_80px_rgba(124,58,237,0.25)]"
+          >
+            <Image
+              src="/images/laptop.png"
+              alt="Laptop con código"
+              width={700}
+              height={500}
+              className="w-full object-contain"
+              priority
+            />
+          </motion.div>
+        </motion.div>
+
         {/* Main grid */}
         <div className="grid items-start gap-14 lg:grid-cols-[1.3fr_1fr]">
 
