@@ -19,6 +19,7 @@ import {
 
 const technologies = [
   { name: 'React', icon: SiReact, category: 'Frontend', color: '#61DAFB', level: 85 },
+  { name: 'React Native', icon: SiReact, category: 'Mobile', color: '#61DAFB', level: 80 },
   { name: 'Next.js', icon: SiNextdotjs, category: 'Frontend', color: '#FFFFFF', level: 80 },
   { name: 'TypeScript', icon: SiTypescript, category: 'Language', color: '#3178C6', level: 75 },
   { name: 'Python', icon: SiPython, category: 'Backend', color: '#3776AB', level: 90 },

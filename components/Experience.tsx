@@ -15,6 +15,7 @@ type ExperienceItem = {
   logoText: string;
   accent: string;
   chip: string;
+  logoStyle?: 'white' | 'full';
 };
 
 const volunteering: ExperienceItem[] = [
@@ -23,7 +24,10 @@ const volunteering: ExperienceItem[] = [
     role: 'Presidente',
     period: 'Diciembre 2025 - Actualidad',
     area: 'Liderazgo estudiantil',
+    logo: '/images/LEAD-tecsup.png',
+    logoAlt: 'LEAD TECSUP',
     logoText: 'LEAD',
+    logoStyle: 'full',
     accent: 'text-primary-purple',
     chip: 'bg-primary-purple/15 text-primary-purple',
   },
@@ -32,16 +36,22 @@ const volunteering: ExperienceItem[] = [
     role: 'Voluntario de Alianzas Estratégicas',
     period: 'Marzo 2026 - Actualidad',
     area: 'Relaciones institucionales',
+    logo: '/images/ComSoc.jpeg',
+    logoAlt: 'IEEE ComSoc TECSUP',
     logoText: 'COMSOC',
+    logoStyle: 'full',
     accent: 'text-primary-blue',
     chip: 'bg-primary-blue/15 text-primary-blue',
   },
   {
-    org: 'IEEE Computer Society',
+    org: 'IEEE Computer Society TECSUP',
     role: 'Director de RR.HH.',
     period: 'Agosto 2025 - Actualidad',
     area: 'Gestión de talento',
+    logo: '/images/computer.jpg',
+    logoAlt: 'IEEE Computer Society TECSUP',
     logoText: 'CS',
+    logoStyle: 'full',
     accent: 'text-violet-400',
     chip: 'bg-violet-500/15 text-violet-400',
   },
@@ -57,6 +67,7 @@ const workExperience: ExperienceItem[] = [
     logo: '/images/NTT.png',
     logoAlt: 'NTT DATA',
     logoText: 'NTT',
+    logoStyle: 'white',
     accent: 'text-primary-blue',
     chip: 'bg-primary-blue/15 text-primary-blue',
   },
@@ -65,10 +76,11 @@ const workExperience: ExperienceItem[] = [
     role: 'Desarrollador de aplicaciones para móviles',
     period: 'Diciembre 2025 - Marzo 2026',
     area: 'Lima, Perú · Híbrido',
-    details: 'Jornada completa · Apps móviles y JavaScript',
+    details: 'Jornada completa · Apps móviles con React Native',
     logo: '/images/CHIRU.png',
     logoAlt: 'Chiru MarketPlace',
     logoText: 'CHIRU',
+    logoStyle: 'white',
     accent: 'text-primary-purple',
     chip: 'bg-primary-purple/15 text-primary-purple',
   },
@@ -81,6 +93,7 @@ const workExperience: ExperienceItem[] = [
     logo: '/images/CHIRU.png',
     logoAlt: 'Chiru MarketPlace',
     logoText: 'CHIRU',
+    logoStyle: 'white',
     accent: 'text-violet-400',
     chip: 'bg-violet-500/15 text-violet-400',
   },
@@ -99,12 +112,20 @@ function ExperienceCard({ item, delay }: { item: ExperienceItem; delay: number }
         <div
           className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border text-[11px] font-bold tracking-[0.08em] ${
             item.logo
-              ? 'border-white/40 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.18)]'
+              ? item.logoStyle === 'full'
+                ? 'overflow-hidden border-white/20 bg-white/[0.08]'
+                : 'border-white/40 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.18)]'
               : 'border-white/10 bg-white/[0.06] text-gray-200'
           }`}
         >
           {item.logo ? (
-            <Image src={item.logo} alt={item.logoAlt ?? item.org} width={56} height={56} className="h-10 w-10 object-contain" />
+            <Image
+              src={item.logo}
+              alt={item.logoAlt ?? item.org}
+              width={56}
+              height={56}
+              className={item.logoStyle === 'full' ? 'h-full w-full object-cover' : 'h-10 w-10 object-contain'}
+            />
           ) : (
             item.logoText
           )}
