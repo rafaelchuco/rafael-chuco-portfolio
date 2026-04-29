@@ -6,27 +6,27 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 py-20">
+    <section className="relative overflow-x-hidden px-6 pb-16 pt-28 lg:min-h-screen lg:pb-20 lg:pt-32">
       {/* Background gradient effects - subtle */}
       <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary-purple/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-primary-blue/10 rounded-full blur-3xl"></div>
 
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:min-h-[calc(100vh-8rem)] lg:grid-cols-2 lg:items-center lg:gap-16">
         {/* Left side - Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
-          className="relative flex justify-center lg:justify-start group order-2 lg:order-1"
+          className="relative order-2 flex justify-center lg:order-1 lg:justify-start"
         >
-          <div className="relative w-[600px] h-[600px] lg:w-[900px] lg:h-[900px]">
+          <div className="relative h-[360px] w-[360px] sm:h-[460px] sm:w-[460px] lg:h-[620px] lg:w-[620px] xl:h-[720px] xl:w-[720px]">
             {/* Image container */}
             <div className="relative w-full h-full">
               <Image
                 src="/images/rafael.png"
                 alt="Foto de perfil de Rafael Chuco"
                 fill
-                sizes="(max-width: 1024px) 600px, 900px"
+                sizes="(max-width: 640px) 360px, (max-width: 1024px) 460px, (max-width: 1280px) 620px, 720px"
                 style={{ objectFit: 'contain' }}
                 className="transition-transform duration-500 ease-in-out"
                 priority
