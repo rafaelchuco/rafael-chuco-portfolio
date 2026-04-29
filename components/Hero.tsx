@@ -1,7 +1,7 @@
 'use client';
 
-import { motion, useAnimationControls } from 'framer-motion';
-import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Github, Linkedin, Mail, ArrowRight, CheckCircle2, Zap } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -9,13 +9,13 @@ const codeLines = [
   { tokens: [{ t: 'const ', c: 'text-primary-blue' }, { t: 'dev', c: 'text-violet-300' }, { t: ' = {', c: 'text-gray-300' }] },
   { tokens: [{ t: '  nombre', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: '"Rafael"', c: 'text-amber-300' }, { t: ',', c: 'text-gray-400' }] },
   { tokens: [{ t: '  stack', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: '"Full Stack"', c: 'text-amber-300' }, { t: ',', c: 'text-gray-400' }] },
+  { tokens: [{ t: '  sap', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: 'true', c: 'text-primary-purple' }, { t: ',', c: 'text-gray-400' }] },
   { tokens: [{ t: '  open', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: 'true', c: 'text-primary-purple' }] },
   { tokens: [{ t: '}', c: 'text-gray-300' }] },
 ];
 
 function CodeCard() {
   const [visibleLines, setVisibleLines] = useState(0);
-
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
@@ -35,27 +35,21 @@ function CodeCard() {
         x: { delay: 1.1, duration: 0.7 },
         y: { delay: 2, duration: 3.5, repeat: Infinity, ease: 'easeInOut' },
       }}
-      className="absolute right-4 bottom-[35%] z-20 min-w-[210px] rounded-2xl border border-white/[0.08] bg-[#0A0F1A]/90 p-4 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+      className="absolute right-4 bottom-[32%] z-10 min-w-[215px] rounded-2xl border border-white/[0.08] bg-[#0A0F1A]/90 p-4 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
     >
-      {/* Header bar */}
       <div className="flex items-center gap-1.5 mb-3">
         <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
         <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
         <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
         <span className="ml-2 text-[10px] text-gray-600 font-mono">dev.js</span>
       </div>
-      {/* Code lines */}
-      <div className="font-mono text-[12px] leading-6 space-y-0">
+      <div className="font-mono text-[12px] leading-6">
         {codeLines.map((line, li) => (
-          <div
-            key={li}
-            className={`transition-all duration-300 ${li < visibleLines ? 'opacity-100' : 'opacity-0'}`}
-          >
+          <div key={li} className={`transition-all duration-300 ${li < visibleLines ? 'opacity-100' : 'opacity-0'}`}>
             <span className="select-none text-gray-600 mr-3">{li + 1}</span>
             {line.tokens.map((tok, ti) => (
               <span key={ti} className={tok.c}>{tok.t}</span>
             ))}
-            {/* blinking cursor on last visible line */}
             {li === visibleLines - 1 && visibleLines < codeLines.length && (
               <motion.span
                 animate={{ opacity: [1, 0, 1] }}
@@ -63,6 +57,102 @@ function CodeCard() {
                 className="inline-block w-[7px] h-[13px] bg-primary-purple/80 ml-0.5 align-middle"
               />
             )}
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
+/* Mini activity feed */
+const activities = [
+  { label: 'Deploy exitoso', sub: 'hace 2h', ok: true },
+  { label: 'PR merged', sub: 'hace 5h', ok: true },
+  { label: 'Build en progreso', sub: 'ahora', ok: false },
+];
+
+function ActivityCard() {
+  const [visible, setVisible] = useState(0);
+  useEffect(() => {
+    let i = 0;
+    const t = setInterval(() => { i++; setVisible(i); if (i >= activities.length) clearInterval(t); }, 500);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -24 }}
+      animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
+      transition={{
+        opacity: { delay: 1.4, duration: 0.6 },
+        x: { delay: 1.4, duration: 0.6 },
+        y: { delay: 2.6, duration: 4.5, repeat: Infinity, ease: 'easeInOut' },
+      }}
+      className="absolute left-0 top-[22%] z-10 w-[190px] rounded-2xl border border-white/[0.07] bg-[#0A0F1A]/90 p-3.5 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+    >
+      <div className="flex items-center gap-2 mb-2.5">
+        <Zap className="h-3.5 w-3.5 text-primary-purple" />
+        <span className="text-[10px] uppercase tracking-widest text-gray-500">Actividad</span>
+      </div>
+      <div className="space-y-2">
+        {activities.map((a, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: i < visible ? 1 : 0, x: i < visible ? 0 : -10 }}
+            transition={{ duration: 0.35 }}
+            className="flex items-center justify-between"
+          >
+            <div className="flex items-center gap-2">
+              {a.ok
+                ? <CheckCircle2 className="h-3 w-3 text-green-400 shrink-0" />
+                : <motion.span animate={{ opacity: [1,0.3,1] }} transition={{ duration: 1, repeat: Infinity }} className="h-2.5 w-2.5 rounded-full bg-amber-400 shrink-0" />
+              }
+              <span className="text-[11px] text-gray-300">{a.label}</span>
+            </div>
+            <span className="text-[10px] text-gray-600 ml-1">{a.sub}</span>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
+/* Skill progress bars */
+const skills = [
+  { label: 'Frontend', pct: 92, color: 'from-primary-purple to-violet-400' },
+  { label: 'Backend', pct: 85, color: 'from-primary-blue to-cyan-400' },
+  { label: 'SAP', pct: 75, color: 'from-amber-500 to-orange-400' },
+];
+
+function SkillCard() {
+  const [animated, setAnimated] = useState(false);
+  useEffect(() => { const t = setTimeout(() => setAnimated(true), 1600); return () => clearTimeout(t); }, []);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: [0, 7, 0] }}
+      transition={{
+        opacity: { delay: 1.5, duration: 0.7 },
+        y: { delay: 3, duration: 5, repeat: Infinity, ease: 'easeInOut' },
+      }}
+      className="absolute right-2 top-[24%] z-10 w-[175px] rounded-2xl border border-white/[0.07] bg-[#0A0F1A]/90 p-3.5 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.4)]"
+    >
+      <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-3">Skills</p>
+      <div className="space-y-2.5">
+        {skills.map((s, i) => (
+          <div key={s.label}>
+            <div className="flex justify-between mb-1">
+              <span className="text-[11px] text-gray-300">{s.label}</span>
+              <span className="text-[11px] text-gray-500">{s.pct}%</span>
+            </div>
+            <div className="h-1.5 w-full rounded-full bg-white/[0.06]">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: animated ? `${s.pct}%` : 0 }}
+                transition={{ delay: i * 0.15, duration: 0.8, ease: 'easeOut' }}
+                className={`h-full rounded-full bg-gradient-to-r ${s.color}`}
+              />
+            </div>
           </div>
         ))}
       </div>
@@ -107,24 +197,33 @@ export default function Hero() {
           {/* Floating badge — years */}
           <motion.div
             initial={{ opacity: 0, x: -30, y: 10 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ delay: 1, duration: 0.7, ease: 'easeOut' }}
-            style={{ y: 0 }}
-            className="absolute left-2 bottom-[30%] z-20 flex items-center gap-3 rounded-2xl border border-white/10 bg-[#0D1117]/80 px-4 py-3 backdrop-blur-md shadow-xl"
+            animate={{ opacity: 1, x: 0, y: [0, -6, 0] }}
+            transition={{
+              opacity: { delay: 1, duration: 0.7 },
+              x: { delay: 1, duration: 0.7 },
+              y: { delay: 2.2, duration: 4, repeat: Infinity, ease: 'easeInOut' },
+            }}
+            className="absolute left-2 bottom-[28%] z-10 flex items-center gap-3 rounded-2xl border border-white/10 bg-[#0D1117]/80 px-4 py-3 backdrop-blur-md shadow-xl"
           >
             <span className="text-2xl font-bold text-white">2+</span>
             <span className="text-xs leading-tight text-gray-400">años de<br/>experiencia</span>
           </motion.div>
 
-          {/* Floating badge — stack code card */}
+          {/* Activity feed */}
+          <ActivityCard />
+
+          {/* Skill progress bars */}
+          <SkillCard />
+
+          {/* Code card */}
           <CodeCard />
 
-          {/* Image */}
+          {/* Image (encima, z-20) */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 1, ease: 'easeOut' }}
-            className="relative w-full h-full"
+            className="relative w-full h-full z-20"
           >
             <Image
               src="/images/rafael.png"
