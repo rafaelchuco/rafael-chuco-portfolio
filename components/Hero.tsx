@@ -1,9 +1,80 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowRight, CheckCircle2, Zap } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+
+/* Floating particles */
+const particles = Array.from({ length: 18 }, (_, i) => ({
+  id: i,
+  x: Math.random() * 100,
+  y: Math.random() * 100,
+  size: Math.random() * 3 + 1,
+  duration: Math.random() * 6 + 5,
+  delay: Math.random() * 4,
+}));
+
+function Particles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particles.map((p) => (
+        <motion.div
+          key={p.id}
+          className="absolute rounded-full bg-primary-purple/30"
+          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size }}
+          animate={{ y: [-12, 12, -12], opacity: [0.2, 0.7, 0.2] }}
+          transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: 'easeInOut' }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* Letter-by-letter animation */
+function AnimatedName({ text }: { text: string }) {
+  return (
+    <span>
+      {text.split('').map((char, i) => (
+        <motion.span
+          key={i}
+          initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ delay: 0.3 + i * 0.045, duration: 0.5, ease: 'easeOut' }}
+          className="inline-block"
+        >
+          {char === ' ' ? '\u00A0' : char}
+        </motion.span>
+      ))}
+    </span>
+  );
+}
+
+/* Typewriter subtitle */
+function Typewriter({ text }: { text: string }) {
+  const [displayed, setDisplayed] = useState('');
+  useEffect(() => {
+    let i = 0;
+    const t = setTimeout(() => {
+      const interval = setInterval(() => {
+        setDisplayed(text.slice(0, i + 1));
+        i++;
+        if (i >= text.length) clearInterval(interval);
+      }, 60);
+    }, 900);
+    return () => clearTimeout(t);
+  }, [text]);
+  return (
+    <span>
+      {displayed}
+      <motion.span
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{ duration: 0.7, repeat: Infinity }}
+        className="inline-block w-[2px] h-[1em] bg-primary-blue align-middle ml-0.5"
+      />
+    </span>
+  );
+}
 
 const codeLines = [
   { tokens: [{ t: 'const ', c: 'text-primary-blue' }, { t: 'dev', c: 'text-violet-300' }, { t: ' = {', c: 'text-gray-300' }] },
@@ -152,23 +223,38 @@ function SkillCard() {
 }
 
 export default function Hero() {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const springX = useSpring(mouseX, { stiffness: 60, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 60, damping: 20 });
+  const glowX = useTransform(springX, [0, 1], ['-10%', '10%']);
+  const glowY = useTransform(springY, [0, 1], ['-10%', '10%']);
+
+  function handleMouseMove(e: React.MouseEvent) {
+    mouseX.set(e.clientX / window.innerWidth);
+    mouseY.set(e.clientY / window.innerHeight);
+  }
+
   return (
-    <section className="relative overflow-hidden h-screen">
+    <section className="relative overflow-hidden h-screen" onMouseMove={handleMouseMove}>
       {/* Background gradient effects */}
       <div className="absolute top-0 left-0 w-[700px] h-[700px] bg-primary-purple/[0.07] rounded-full blur-3xl -translate-x-1/4 -translate-y-1/4"></div>
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary-blue/[0.07] rounded-full blur-3xl translate-x-1/4 translate-y-1/4"></div>
       <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-primary-purple/[0.04] rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
+      {/* Particles */}
+      <Particles />
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
 
       <div className="relative z-10 mx-auto grid h-full max-w-7xl px-6 lg:grid-cols-2 lg:items-center lg:gap-16">
         {/* Left side - Image */}
         <div className="relative order-2 hidden lg:flex lg:order-1 lg:justify-start lg:items-end lg:h-full lg:pt-16">
-          {/* Glow behind image */}
+          {/* Glow behind image — parallax */}
           <motion.div
             initial={{ opacity: 0, scale: 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 1.2, ease: 'easeOut' }}
+            style={{ x: glowX, y: glowY }}
             className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] h-[50%] bg-primary-purple/20 rounded-full blur-[80px] pointer-events-none"
           />
           {/* Orbit ring */}
@@ -244,11 +330,13 @@ export default function Hero() {
               className="space-y-6"
             >
               <h1 className="text-5xl font-semibold leading-[0.9] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[6rem]">
-                <span className="text-white">Rafael Chuco</span>
+                <AnimatedName text="Rafael Chuco" />
               </h1>
               <div className="flex items-center gap-4">
                 <div className="h-px w-12 bg-gradient-to-r from-primary-blue to-primary-purple" />
-                <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/70">Desarrollador Full Stack</p>
+                <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/70">
+                  <Typewriter text="Desarrollador Full Stack" />
+                </p>
               </div>
               <p className="max-w-lg text-lg leading-relaxed text-gray-400 lg:text-xl">
                 Convierto ideas en productos digitales modernos, claros y escalables — desde web full stack hasta soluciones SAP empresariales.
@@ -333,6 +421,23 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: [0, 8, 0] }}
+        transition={{ delay: 1.8, duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-20"
+      >
+        <span className="text-[10px] uppercase tracking-[0.2em] text-gray-600">Scroll</span>
+        <div className="w-5 h-8 rounded-full border border-white/10 flex items-start justify-center pt-1.5">
+          <motion.div
+            animate={{ y: [0, 10, 0], opacity: [1, 0, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-1 h-2 rounded-full bg-primary-purple/60"
+          />
+        </div>
+      </motion.div>
     </section>
   );
 }
