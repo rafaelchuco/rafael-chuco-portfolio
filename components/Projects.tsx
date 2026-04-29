@@ -131,7 +131,6 @@ export default function Projects() {
                   <p className="text-sm uppercase tracking-[0.18em] text-gray-500">Qué resuelve</p>
                 </div>
                 <p className="text-sm leading-relaxed text-gray-400">
-                  {project.title}
                   {project.description}
                 </p>
 
