@@ -50,18 +50,19 @@ export default function Hero() {
             <span className="text-xs leading-tight text-gray-400">años de<br/>experiencia</span>
           </motion.div>
 
-          {/* Floating badge — available */}
+          {/* Floating badge — stack */}
           <motion.div
             initial={{ opacity: 0, x: 30, y: 10 }}
             animate={{ opacity: 1, x: 0, y: 0 }}
             transition={{ delay: 1.1, duration: 0.7, ease: 'easeOut' }}
-            className="absolute right-4 bottom-[38%] z-20 flex items-center gap-3 rounded-2xl border border-green-500/20 bg-green-500/10 px-4 py-3 backdrop-blur-md shadow-xl"
+            className="absolute right-4 bottom-[38%] z-20 rounded-2xl border border-white/10 bg-[#0D1117]/80 px-4 py-3 backdrop-blur-md shadow-xl"
           >
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-60"></span>
-              <span className="relative h-2.5 w-2.5 rounded-full bg-green-400"></span>
-            </span>
-            <span className="text-xs leading-tight text-gray-300">Disponible para<br/>nuevos proyectos</span>
+            <p className="text-[11px] uppercase tracking-widest text-gray-500 mb-2">Stack principal</p>
+            <div className="flex items-center gap-2">
+              <span className="rounded-lg bg-white/[0.06] px-2.5 py-1 text-xs font-medium text-gray-200">React</span>
+              <span className="rounded-lg bg-white/[0.06] px-2.5 py-1 text-xs font-medium text-gray-200">Next.js</span>
+              <span className="rounded-lg bg-white/[0.06] px-2.5 py-1 text-xs font-medium text-gray-200">Django</span>
+            </div>
           </motion.div>
 
           {/* Image */}
