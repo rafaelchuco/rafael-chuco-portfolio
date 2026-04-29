@@ -34,14 +34,106 @@ const technologies = [
 ];
 
 const sapTechnologies = [
-  { name: 'SAP BTP', abbr: 'BTP', category: 'Platform', level: 88, desc: 'Business Technology Platform' },
-  { name: 'SAP ABAP', abbr: 'ABAP', category: 'Language', level: 85, desc: 'Advanced Business App Programming' },
-  { name: 'SAP Fiori', abbr: 'Fiori', category: 'UX', level: 85, desc: 'Design System & Apps' },
-  { name: 'SAPUI5', abbr: 'UI5', category: 'Frontend', level: 83, desc: 'UI Development Toolkit' },
-  { name: 'SAP HANA', abbr: 'HANA', category: 'Database', level: 80, desc: 'In-Memory Cloud Database' },
-  { name: 'Joule AI', abbr: 'Joule', category: 'AI', level: 80, desc: 'Copilot IA de SAP' },
-  { name: 'SAP Build', abbr: 'Build', category: 'Low-Code', level: 78, desc: 'Low-code automation & apps' },
-  { name: 'SAP Con.', abbr: 'Con.', category: 'Integration', level: 82, desc: 'SAP Connector & automaciones' },
+  {
+    name: 'SAP BTP',
+    category: 'Platform',
+    desc: 'Business Technology Platform',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <circle cx="24" cy="24" r="20" fill="url(#btpGrad)" opacity="0.15"/>
+        <path d="M14 32 L24 14 L34 32 Z" stroke="#F59E0B" strokeWidth="2" strokeLinejoin="round" fill="none"/>
+        <circle cx="24" cy="24" r="4" fill="#F59E0B"/>
+        <defs><linearGradient id="btpGrad" x1="0" y1="0" x2="48" y2="48"><stop stopColor="#F59E0B"/><stop offset="1" stopColor="#EF4444"/></linearGradient></defs>
+      </svg>
+    ),
+  },
+  {
+    name: 'SAP ABAP',
+    category: 'Language',
+    desc: 'Advanced Business App Programming',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <rect x="8" y="14" width="32" height="20" rx="4" stroke="#FB923C" strokeWidth="2" fill="none"/>
+        <path d="M16 24 L20 20 L16 16" stroke="#FB923C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <line x1="22" y1="28" x2="32" y2="28" stroke="#FB923C" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'SAP Fiori',
+    category: 'UX / Design',
+    desc: 'Design System & Apps empresariales',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <rect x="10" y="10" width="12" height="12" rx="3" fill="#F59E0B" opacity="0.8"/>
+        <rect x="26" y="10" width="12" height="12" rx="3" fill="#F59E0B" opacity="0.5"/>
+        <rect x="10" y="26" width="12" height="12" rx="3" fill="#F59E0B" opacity="0.5"/>
+        <rect x="26" y="26" width="12" height="12" rx="3" fill="#F59E0B" opacity="0.3"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'SAPUI5',
+    category: 'Frontend',
+    desc: 'UI Development Toolkit para SAP',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <polygon points="24,8 40,36 8,36" stroke="#FBBF24" strokeWidth="2" fill="none" strokeLinejoin="round"/>
+        <line x1="24" y1="18" x2="24" y2="30" stroke="#FBBF24" strokeWidth="2.5" strokeLinecap="round"/>
+        <circle cx="24" cy="33" r="2" fill="#FBBF24"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'SAP HANA',
+    category: 'Database',
+    desc: 'In-Memory Cloud Database',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <ellipse cx="24" cy="18" rx="14" ry="6" stroke="#F97316" strokeWidth="2" fill="none"/>
+        <path d="M10 18 C10 18 10 30 10 30 C10 33.3 16.3 36 24 36 C31.7 36 38 33.3 38 30 L38 18" stroke="#F97316" strokeWidth="2" fill="none"/>
+        <line x1="10" y1="24" x2="38" y2="24" stroke="#F97316" strokeWidth="1.5" strokeDasharray="3 2" opacity="0.6"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'Joule AI',
+    category: 'AI Copilot',
+    desc: 'Copilot de Inteligencia Artificial SAP',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <circle cx="24" cy="24" r="10" stroke="#FCD34D" strokeWidth="2" fill="none"/>
+        <path d="M24 10 L24 6M24 42 L24 38M38 24 L42 24M6 24 L10 24" stroke="#FCD34D" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="24" cy="24" r="4" fill="#FCD34D" opacity="0.7"/>
+        <path d="M20 20 L28 28M28 20 L20 28" stroke="#FCD34D" strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'SAP Build',
+    category: 'Low-Code',
+    desc: 'Low-code automation & apps',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <rect x="10" y="22" width="8" height="16" rx="2" fill="#F59E0B" opacity="0.6"/>
+        <rect x="20" y="14" width="8" height="24" rx="2" fill="#F59E0B" opacity="0.8"/>
+        <rect x="30" y="8" width="8" height="30" rx="2" fill="#F59E0B"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'SAP Connector',
+    category: 'Integration',
+    desc: 'Automaciones e integraciones SAP',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <circle cx="12" cy="24" r="6" stroke="#FB923C" strokeWidth="2" fill="none"/>
+        <circle cx="36" cy="24" r="6" stroke="#FB923C" strokeWidth="2" fill="none"/>
+        <line x1="18" y1="24" x2="30" y2="24" stroke="#FB923C" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M22 20 L26 24 L22 28" stroke="#FB923C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+  },
 ];
 
 export default function TechStack() {
@@ -116,8 +208,8 @@ export default function TechStack() {
               whileHover={{ y: -6, scale: 1.03 }}
               className="group relative rounded-[24px] border border-amber-500/10 bg-gradient-to-br from-amber-500/[0.06] to-orange-500/[0.02] p-6 text-left transition-all duration-300 hover:border-amber-500/25 hover:shadow-[0_16px_40px_rgba(251,191,36,0.06)]"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-500/20 bg-amber-500/10 transition-transform duration-300 group-hover:scale-110">
-                <span className="text-sm font-bold tracking-tight text-amber-400">{tech.abbr}</span>
+              <div className="mb-5 transition-transform duration-300 group-hover:scale-110">
+                {tech.icon}
               </div>
               <h3 className="mb-1 text-lg font-semibold text-white">{tech.name}</h3>
               <p className="mb-2 text-xs uppercase tracking-[0.18em] text-amber-600/70">{tech.category}</p>
