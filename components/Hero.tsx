@@ -1,202 +1,149 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Download, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 py-20">
-      {/* Background gradient effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-purple/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-blue/20 rounded-full blur-3xl"></div>
+      {/* Background gradient effects - subtle */}
+      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary-purple/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-primary-blue/10 rounded-full blur-3xl"></div>
 
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
-        {/* Left side - Text content */}
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+        {/* Left side - Image */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-6"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
+          className="relative flex justify-center lg:justify-start group order-2 lg:order-1"
         >
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-block"
-          >
-            <span className="px-4 py-2 rounded-full bg-primary-purple/10 border border-primary-purple/30 text-primary-purple text-sm font-medium">
-              Desarrollador Full Stack
-            </span>
-          </motion.div>
-
-          {/* Main heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
-            <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-              Hola, soy{' '}
-              <span className="bg-gradient-to-r from-primary-purple to-primary-blue bg-clip-text text-transparent">
-                Rafael Chuco
-              </span>
-            </h1>
-          </motion.div>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-xl lg:text-2xl text-gray-300 leading-relaxed"
-          >
-            Desarrollador Full Stack enfocado en crear soluciones digitales{' '}
-            <span className="text-primary-purple font-semibold">modernas</span>,{' '}
-            <span className="text-primary-blue font-semibold">escalables</span> y
-            centradas en resultados.
-          </motion.p>
-
-          {/* Highlight text */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="flex items-center gap-3 text-lg"
-          >
-            <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-purple/5 border border-primary-purple/20">
-              <span className="text-2xl">⚡</span>
-              <span className="text-gray-300">Rápido aprendizaje</span>
+          <div className="relative w-[600px] h-[600px] lg:w-[900px] lg:h-[900px]">
+            {/* Image container */}
+            <div className="relative w-full h-full">
+              <Image
+                src="/images/rafael.png"
+                alt="Foto de perfil de Rafael Chuco"
+                fill
+                sizes="(max-width: 1024px) 600px, 900px"
+                style={{ objectFit: 'contain' }}
+                className="transition-transform duration-500 ease-in-out"
+                priority
+              />
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-blue/5 border border-primary-blue/20">
-              <span className="text-2xl">🎯</span>
-              <span className="text-gray-300">Orientado a resultados</span>
-            </div>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex flex-wrap gap-4 pt-4"
-          >
-            <a
-              href="#proyectos"
-              className="group px-8 py-4 bg-gradient-to-r from-primary-purple to-primary-blue rounded-lg font-semibold text-white shadow-lg hover:shadow-purple-500/50 transition-all duration-300 flex items-center gap-2"
-            >
-              Ver proyectos
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#contacto"
-              className="px-8 py-4 border-2 border-gray-600 hover:border-primary-purple rounded-lg font-semibold text-white hover:bg-primary-purple/10 transition-all duration-300"
-            >
-              Contáctame
-            </a>
-            <a
-              href="/cv-rafael-chuco.pdf"
-              download
-              className="px-6 py-4 border border-gray-700 hover:border-gray-500 rounded-lg font-medium text-gray-300 hover:text-white transition-all duration-300 flex items-center gap-2"
-            >
-              <Download className="w-5 h-5" />
-              Descargar CV
-            </a>
-          </motion.div>
-
-          {/* Social links */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="flex gap-4 pt-4"
-          >
-            <a
-              href="https://github.com/rafael-chuco"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-dark-card hover:bg-gray-700 border border-dark-border hover:border-primary-purple transition-all duration-300"
-            >
-              <Github className="w-6 h-6" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/rafael-chuco/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-dark-card hover:bg-gray-700 border border-dark-border hover:border-primary-blue transition-all duration-300"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a
-              href="mailto:rafael.chuco1908@gmail.com"
-              className="p-3 rounded-lg bg-dark-card hover:bg-gray-700 border border-dark-border hover:border-primary-purple transition-all duration-300"
-            >
-              <Mail className="w-6 h-6" />
-            </a>
-          </motion.div>
+          </div>
         </motion.div>
 
-        {/* Right side - Image & Dragon */}
+        {/* Right side - Text content */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="relative flex justify-center lg:justify-end"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="order-1 lg:order-2"
         >
-          {/* Main profile image container */}
-          <div className="relative">
-            {/* Glow effect behind image */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-purple to-primary-blue opacity-30 blur-3xl rounded-full"></div>
-            
-            {/* Profile image */}
-            <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border-2 border-gray-700 shadow-2xl">
-              <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
-                <span className="text-6xl font-bold text-gray-600">RC</span>
-              </div>
-            </div>
-
-            {/* Tech badges floating */}
+          <div className="max-w-2xl space-y-8">
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-              className="absolute -top-6 -right-6 bg-dark-card border border-dark-border rounded-xl p-3 glass hidden lg:flex items-center gap-2"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.6 }}
+              className="inline-flex items-center gap-3 rounded-full border border-primary-purple/20 bg-gradient-to-r from-primary-purple/12 to-primary-blue/10 px-4 py-2 text-sm text-gray-200 backdrop-blur-sm"
             >
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-              <span className="text-sm font-medium">Disponible</span>
+              <span className="h-2 w-2 rounded-full bg-primary-blue shadow-[0_0_12px_rgba(37,99,235,0.8)]" />
+              Full Stack Developer
             </motion.div>
 
-            {/* Code decoration */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.9, duration: 0.6 }}
-              className="absolute -bottom-6 -left-6 bg-dark-card border border-dark-border rounded-xl p-4 glass hidden lg:block"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25, duration: 0.6 }}
+              className="space-y-5"
             >
-              <div className="flex items-center gap-2">
-                <code className="text-primary-purple text-2xl font-bold">{'</>'}</code>
-                <div className="text-xs text-gray-400">
-                  <div className="font-semibold text-white">2+ años</div>
-                  <div>experiencia</div>
-                </div>
+              <h1 className="text-5xl font-semibold leading-[0.92] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl xl:text-[5.5rem]">
+                Rafael Chuco
+              </h1>
+              <div className="h-px w-32 bg-gradient-to-r from-primary-purple via-primary-blue to-transparent" />
+              <p className="max-w-xl text-lg leading-relaxed text-gray-300 sm:text-xl lg:text-2xl">
+                Desarrollo productos web modernos, claros y escalables que convierten necesidades reales en experiencias digitales bien ejecutadas.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.38, duration: 0.6 }}
+              className="grid gap-3 sm:grid-cols-3"
+            >
+              <div className="rounded-2xl border border-primary-purple/14 bg-gradient-to-br from-primary-purple/[0.08] to-white/[0.02] px-4 py-4">
+                <p className="text-2xl font-semibold text-primary-purple">15+</p>
+                <p className="mt-1 text-sm text-gray-400">proyectos entregados</p>
               </div>
+              <div className="rounded-2xl border border-primary-blue/14 bg-gradient-to-br from-primary-blue/[0.08] to-white/[0.02] px-4 py-4">
+                <p className="text-2xl font-semibold text-primary-blue">Full stack</p>
+                <p className="mt-1 text-sm text-gray-400">frontend y backend</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4">
+                <p className="text-2xl font-semibold bg-gradient-to-r from-primary-purple to-primary-blue bg-clip-text text-transparent">Enfoque</p>
+                <p className="mt-1 text-sm text-gray-400">producto, claridad y resultado</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="flex flex-wrap items-center gap-4 pt-2"
+            >
+              <a
+                href="#proyectos"
+                className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary-purple to-primary-blue px-7 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_50px_rgba(124,58,237,0.28)]"
+              >
+                Ver proyectos
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+              <a
+                href="#contacto"
+                className="inline-flex items-center rounded-xl border border-primary-blue/20 bg-primary-blue/[0.05] px-7 py-4 font-semibold text-white transition-all duration-300 hover:border-primary-blue/35 hover:bg-primary-blue/[0.10]"
+              >
+                Contáctame
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.62, duration: 0.6 }}
+              className="flex items-center gap-5 pt-1 text-gray-500"
+            >
+              <a
+                href="https://github.com/rafael-chuco"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors duration-300 hover:text-primary-purple"
+                aria-label="GitHub"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/rafael-chuco/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors duration-300 hover:text-primary-blue"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="mailto:rafael.chuco1908@gmail.com"
+                className="transition-colors duration-300 hover:text-primary-purple"
+                aria-label="Email"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
             </motion.div>
           </div>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1, duration: 0.6, repeat: Infinity, repeatType: "reverse" }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-      >
-        <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center p-2">
-          <div className="w-1 h-2 bg-primary-purple rounded-full"></div>
-        </div>
-      </motion.div>
     </section>
   );
 }

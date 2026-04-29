@@ -1,20 +1,34 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { 
+  SiReact, 
+  SiNextdotjs, 
+  SiTypescript, 
+  SiPython, 
+  SiDjango, 
+  SiLaravel, 
+  SiVuedotjs, 
+  SiTailwindcss, 
+  SiMysql, 
+  SiPostgresql, 
+  SiMongodb, 
+  SiGit 
+} from 'react-icons/si';
 
 const technologies = [
-  { name: 'React', icon: '⚛️', category: 'Frontend', color: 'text-cyan-400', level: 85 },
-  { name: 'Next.js', icon: '▲', category: 'Frontend', color: 'text-white', level: 80 },
-  { name: 'TypeScript', icon: '📘', category: 'Language', color: 'text-blue-400', level: 75 },
-  { name: 'Python', icon: '🐍', category: 'Backend', color: 'text-yellow-400', level: 90 },
-  { name: 'Django', icon: '🎸', category: 'Backend', color: 'text-green-500', level: 85 },
-  { name: 'Laravel', icon: '🔺', category: 'Backend', color: 'text-red-400', level: 80 },
-  { name: 'Vue.js', icon: '💚', category: 'Frontend', color: 'text-emerald-400', level: 75 },
-  { name: 'Tailwind', icon: '🎨', category: 'Styling', color: 'text-cyan-300', level: 90 },
-  { name: 'MySQL', icon: '🐬', category: 'Database', color: 'text-blue-300', level: 85 },
-  { name: 'PostgreSQL', icon: '🐘', category: 'Database', color: 'text-blue-400', level: 80 },
-  { name: 'MongoDB', icon: '🍃', category: 'Database', color: 'text-green-400', level: 75 },
-  { name: 'Git', icon: '🔀', category: 'Tools', color: 'text-orange-400', level: 90 },
+  { name: 'React', icon: SiReact, category: 'Frontend', color: '#61DAFB', level: 85 },
+  { name: 'Next.js', icon: SiNextdotjs, category: 'Frontend', color: '#FFFFFF', level: 80 },
+  { name: 'TypeScript', icon: SiTypescript, category: 'Language', color: '#3178C6', level: 75 },
+  { name: 'Python', icon: SiPython, category: 'Backend', color: '#3776AB', level: 90 },
+  { name: 'Django', icon: SiDjango, category: 'Backend', color: '#092E20', level: 85 },
+  { name: 'Laravel', icon: SiLaravel, category: 'Backend', color: '#FF2D20', level: 80 },
+  { name: 'Vue.js', icon: SiVuedotjs, category: 'Frontend', color: '#4FC08D', level: 75 },
+  { name: 'Tailwind CSS', icon: SiTailwindcss, category: 'Styling', color: '#06B6D4', level: 90 },
+  { name: 'MySQL', icon: SiMysql, category: 'Database', color: '#4479A1', level: 85 },
+  { name: 'PostgreSQL', icon: SiPostgresql, category: 'Database', color: '#4169E1', level: 80 },
+  { name: 'MongoDB', icon: SiMongodb, category: 'Database', color: '#47A248', level: 75 },
+  { name: 'Git', icon: SiGit, category: 'Tools', color: '#F05032', level: 90 },
 ];
 
 export default function TechStack() {
@@ -61,10 +75,10 @@ export default function TechStack() {
                 />
               </div>
 
-              <div className="text-5xl mb-3 group-hover:scale-110 transition-transform duration-300">
-                {tech.icon}
+              <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                <tech.icon className="w-12 h-12" style={{ color: tech.color }} />
               </div>
-              <h3 className={`font-bold text-lg mb-1 ${tech.color}`}>
+              <h3 className="font-bold text-lg mb-1 text-white">
                 {tech.name}
               </h3>
               <p className="text-xs text-gray-500 mb-2">{tech.category}</p>
