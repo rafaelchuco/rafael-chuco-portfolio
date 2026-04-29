@@ -8,8 +8,8 @@ import { useEffect, useState } from 'react';
 const codeLines = [
   { tokens: [{ t: 'const ', c: 'text-primary-blue' }, { t: 'dev', c: 'text-violet-300' }, { t: ' = {', c: 'text-gray-300' }] },
   { tokens: [{ t: '  nombre', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: '"Rafael"', c: 'text-amber-300' }, { t: ',', c: 'text-gray-400' }] },
-  { tokens: [{ t: '  stack', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: '"Full Stack"', c: 'text-amber-300' }, { t: ',', c: 'text-gray-400' }] },
-  { tokens: [{ t: '  sap', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: 'true', c: 'text-primary-purple' }, { t: ',', c: 'text-gray-400' }] },
+  { tokens: [{ t: '  sap', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: '["BTP","ABAP","Fiori"]', c: 'text-amber-300' }, { t: ',', c: 'text-gray-400' }] },
+  { tokens: [{ t: '  ai', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: '"Joule + Copilot"', c: 'text-violet-300' }, { t: ',', c: 'text-gray-400' }] },
   { tokens: [{ t: '  open', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: 'true', c: 'text-primary-purple' }] },
   { tokens: [{ t: '}', c: 'text-gray-300' }] },
 ];
@@ -119,9 +119,10 @@ function ActivityCard() {
 
 /* Skill progress bars */
 const skills = [
-  { label: 'Frontend', pct: 92, color: 'from-primary-purple to-violet-400' },
-  { label: 'Backend', pct: 85, color: 'from-primary-blue to-cyan-400' },
-  { label: 'SAP', pct: 75, color: 'from-amber-500 to-orange-400' },
+  { label: 'Full Stack Web', pct: 92, color: 'from-primary-purple to-violet-400' },
+  { label: 'SAP BTP / ABAP', pct: 88, color: 'from-amber-500 to-orange-400' },
+  { label: 'SAP Fiori / UI5', pct: 85, color: 'from-primary-blue to-cyan-400' },
+  { label: 'Joule AI / HANA', pct: 80, color: 'from-green-500 to-emerald-400' },
 ];
 
 function SkillCard() {
@@ -260,8 +261,27 @@ export default function Hero() {
                 <p className="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">Desarrollador Web</p>
               </div>
               <p className="max-w-lg text-lg leading-relaxed text-gray-400 lg:text-xl">
-                Convierto ideas en productos digitales modernos, claros y escalables, de principio a fin.
+                Convierto ideas en productos digitales modernos, claros y escalables — desde web full stack hasta soluciones SAP empresariales.
               </p>
+              {/* SAP tech pills */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.6 }}
+                className="flex flex-wrap gap-2"
+              >
+                {['SAP BTP', 'ABAP', 'SAP Fiori', 'SAPUI5', 'HANA', 'Joule AI', 'GitHub Copilot'].map((tag, i) => (
+                  <motion.span
+                    key={tag}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.4 + i * 0.07, duration: 0.3 }}
+                    className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-[11px] font-medium text-gray-400 backdrop-blur-sm"
+                  >
+                    {tag}
+                  </motion.span>
+                ))}
+              </motion.div>
             </motion.div>
 
             {/* Stats row */}

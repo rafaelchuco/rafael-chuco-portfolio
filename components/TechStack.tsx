@@ -13,7 +13,8 @@ import {
   SiMysql, 
   SiPostgresql, 
   SiMongodb, 
-  SiGit 
+  SiGit,
+  SiGithubcopilot
 } from 'react-icons/si';
 
 const technologies = [
@@ -29,6 +30,18 @@ const technologies = [
   { name: 'PostgreSQL', icon: SiPostgresql, category: 'Database', color: '#4169E1', level: 80 },
   { name: 'MongoDB', icon: SiMongodb, category: 'Database', color: '#47A248', level: 75 },
   { name: 'Git', icon: SiGit, category: 'Tools', color: '#F05032', level: 90 },
+  { name: 'GitHub Copilot', icon: SiGithubcopilot, category: 'AI / Tools', color: '#A78BFA', level: 88 },
+];
+
+const sapTechnologies = [
+  { name: 'SAP BTP', abbr: 'BTP', category: 'Platform', level: 88, desc: 'Business Technology Platform' },
+  { name: 'SAP ABAP', abbr: 'ABAP', category: 'Language', level: 85, desc: 'Advanced Business App Programming' },
+  { name: 'SAP Fiori', abbr: 'Fiori', category: 'UX', level: 85, desc: 'Design System & Apps' },
+  { name: 'SAPUI5', abbr: 'UI5', category: 'Frontend', level: 83, desc: 'UI Development Toolkit' },
+  { name: 'SAP HANA', abbr: 'HANA', category: 'Database', level: 80, desc: 'In-Memory Cloud Database' },
+  { name: 'Joule AI', abbr: 'Joule', category: 'AI', level: 80, desc: 'Copilot IA de SAP' },
+  { name: 'SAP Build', abbr: 'Build', category: 'Low-Code', level: 78, desc: 'Low-code automation & apps' },
+  { name: 'SAP Con.', abbr: 'Con.', category: 'Integration', level: 82, desc: 'SAP Connector & automaciones' },
 ];
 
 export default function TechStack() {
