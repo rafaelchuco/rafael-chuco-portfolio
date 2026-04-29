@@ -48,7 +48,7 @@ const volunteering: ExperienceItem[] = [
     role: 'Director de RR.HH.',
     period: 'Agosto 2025 - Actualidad',
     area: 'Gestión de talento',
-    logo: '/images/computer.jpg',
+    logo: '/images/computer.png',
     logoAlt: 'IEEE Computer Society TECSUP',
     logoText: 'CS',
     logoStyle: 'full',
