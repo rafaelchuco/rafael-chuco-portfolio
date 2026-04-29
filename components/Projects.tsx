@@ -70,7 +70,10 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ y: -10 }}
-              className="glass rounded-xl56 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
+              className="glass rounded-xl overflow-hidden group"
+            >
+              {/* Project image */}
+              <div className="relative h-56 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-purple/20 to-primary-blue/20"></div>
                 
                 {/* Project icon */}
@@ -114,10 +117,7 @@ export default function Projects() {
                       >
                         <ExternalLink className="w-5 h-5" />
                       </a>
-                    )}assName="p-2 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
+                    )}
                   </div>
                 </div>
               </div>
