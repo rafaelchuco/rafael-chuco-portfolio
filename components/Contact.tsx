@@ -25,7 +25,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="py-20 px-6 bg-dark-card/30">
+    <section id="contacto" className="bg-dark-card/30 px-6 py-24">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -34,21 +34,21 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary-blue font-semibold text-sm uppercase tracking-wider">
+          <span className="text-primary-blue font-semibold text-sm uppercase tracking-[0.22em]">
             Contacto
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6">
+          <h2 className="mt-4 mb-6 text-4xl font-semibold tracking-[-0.04em] text-white lg:text-6xl">
             Hablemos de tu{' '}
             <span className="bg-gradient-to-r from-primary-purple to-primary-blue bg-clip-text text-transparent">
               próximo proyecto
             </span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Estoy disponible para trabajar en nuevos proyectos y colaboraciones. ¡No dudes en contactarme!
+          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-400">
+            Si buscas a alguien que pueda diseñar, desarrollar y ejecutar con criterio, conversemos. Estoy abierto a freelance y oportunidades profesionales.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           {/* Contact info */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -58,13 +58,13 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-6">Información de contacto</h3>
+              <h3 className="mb-6 text-3xl font-semibold tracking-[-0.03em] text-white">Información de contacto</h3>
               <div className="space-y-4">
                 <a
                   href="mailto:rafael.chuco1908@gmail.com"
-                  className="flex items-center gap-4 p-4 glass rounded-lg hover:border-primary-purple/50 transition-all duration-300 group"
+                  className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-all duration-300 hover:border-primary-purple/25 hover:bg-primary-purple/[0.05]"
                 >
-                  <div className="w-12 h-12 rounded-full bg-primary-purple/20 flex items-center justify-center group-hover:bg-primary-purple/30 transition-colors">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-purple/15 transition-colors group-hover:bg-primary-purple/20">
                     <Mail className="w-6 h-6 text-primary-purple" />
                   </div>
                   <div>
@@ -75,9 +75,9 @@ export default function Contact() {
 
                 <a
                   href="tel:+51927395280"
-                  className="flex items-center gap-4 p-4 glass rounded-lg hover:border-primary-blue/50 transition-all duration-300 group"
+                  className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-all duration-300 hover:border-primary-blue/25 hover:bg-primary-blue/[0.05]"
                 >
-                  <div className="w-12 h-12 rounded-full bg-primary-blue/20 flex items-center justify-center group-hover:bg-primary-blue/30 transition-colors">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-blue/15 transition-colors group-hover:bg-primary-blue/20">
                     <Phone className="w-6 h-6 text-primary-blue" />
                   </div>
                   <div>
@@ -86,8 +86,8 @@ export default function Contact() {
                   </div>
                 </a>
 
-                <div className="flex items-center gap-4 p-4 glass rounded-lg">
-                  <div className="w-12 h-12 rounded-full bg-primary-purple/20 flex items-center justify-center">
+                <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-purple/15">
                     <MapPin className="w-6 h-6 text-primary-purple" />
                   </div>
                   <div>
@@ -99,10 +99,10 @@ export default function Contact() {
             </div>
 
             {/* Additional info */}
-            <div className="glass rounded-xl p-6">
-              <h4 className="font-bold mb-3">💼 Disponibilidad</h4>
-              <p className="text-gray-400 text-sm mb-4">
-                Actualmente disponible para proyectos freelance y oportunidades laborales a tiempo completo.
+            <div className="rounded-[28px] border border-white/10 bg-gradient-to-br from-primary-purple/[0.08] to-primary-blue/[0.06] p-7">
+              <h4 className="mb-3 text-lg font-semibold text-white">Disponibilidad</h4>
+              <p className="mb-4 text-sm leading-relaxed text-gray-300">
+                Disponible para proyectos freelance, colaboraciones y oportunidades donde pueda aportar criterio técnico y ejecución visual.
               </p>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
@@ -118,7 +118,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <form onSubmit={handleSubmit} className="glass rounded-xl p-8 space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 rounded-[28px] border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] p-8 shadow-[0_24px_80px_rgba(0,0,0,0.18)]">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Nombre
@@ -130,7 +130,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-dark-card border border-dark-border focus:border-primary-purple focus:outline-none transition-colors"
+                  className="w-full rounded-xl border border-white/10 bg-[#121821] px-4 py-3 transition-colors focus:border-primary-purple focus:outline-none"
                   placeholder="Tu nombre"
                 />
               </div>
@@ -146,7 +146,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-dark-card border border-dark-border focus:border-primary-purple focus:outline-none transition-colors"
+                  className="w-full rounded-xl border border-white/10 bg-[#121821] px-4 py-3 transition-colors focus:border-primary-purple focus:outline-none"
                   placeholder="tu@email.com"
                 />
               </div>
@@ -162,20 +162,20 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg bg-dark-card border border-dark-border focus:border-primary-purple focus:outline-none transition-colors resize-none"
+                  className="w-full resize-none rounded-xl border border-white/10 bg-[#121821] px-4 py-3 transition-colors focus:border-primary-purple focus:outline-none"
                   placeholder="Cuéntame sobre tu proyecto..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full px-6 py-4 bg-gradient-to-r from-primary-purple to-primary-blue rounded-lg font-semibold text-white shadow-lg hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2 group hover:scale-[1.02]"
+                className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-purple to-primary-blue px-6 py-4 font-semibold text-white shadow-[0_18px_48px_rgba(124,58,237,0.24)] transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_22px_56px_rgba(124,58,237,0.30)]"
               >
                 Enviar mensaje
                 <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
 
-              <p className="text-center text-sm text-gray-400 mt-4">
+              <p className="mt-4 text-center text-sm text-gray-400">
                 Respondo en menos de 24 horas ⚡
               </p>
             </form>

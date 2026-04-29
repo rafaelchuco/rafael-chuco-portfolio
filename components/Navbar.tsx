@@ -30,7 +30,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass border-b border-dark-border' : ''
+        isScrolled ? 'border-b border-white/10 bg-[#0D1117]/78 backdrop-blur-xl' : ''
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
@@ -40,16 +40,19 @@ export default function Navbar() {
             href="#inicio"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2"
+            className="flex items-center gap-3"
           >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-purple to-primary-blue flex items-center justify-center font-bold text-lg">
+            <div className="hidden h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-sm font-semibold text-white sm:flex">
               RC
             </div>
-            <span className="text-xl font-bold text-white hidden sm:block">Rafael Chuco</span>
+            <div className="flex flex-col">
+              <span className="text-base font-semibold tracking-[-0.02em] text-white sm:text-lg">Rafael Chuco</span>
+              <span className="hidden text-xs uppercase tracking-[0.18em] text-gray-500 sm:block">Full Stack Developer</span>
+            </div>
           </motion.a>
 
           {/* Desktop navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8 rounded-full border border-white/10 bg-white/[0.03] px-5 py-3 backdrop-blur-sm">
             {navLinks.map((link, index) => (
               <motion.a
                 key={link.href}
@@ -57,27 +60,28 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="text-gray-300 hover:text-white transition-colors relative group"
+                className="relative text-sm text-gray-300 transition-colors hover:text-white"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-purple to-primary-blue group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute -bottom-2 left-0 h-px w-0 bg-gradient-to-r from-primary-purple to-primary-blue transition-all duration-300 hover:w-full" />
               </motion.a>
             ))}
-            <motion.a
-              href="#contacto"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="px-6 py-2 bg-gradient-to-r from-primary-purple to-primary-blue rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
-            >
-              Contáctame
-            </motion.a>
           </div>
+
+          <motion.a
+            href="#contacto"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="hidden rounded-full bg-gradient-to-r from-primary-purple to-primary-blue px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_40px_rgba(124,58,237,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(124,58,237,0.34)] lg:inline-flex"
+          >
+            Contáctame
+          </motion.a>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-dark-card transition-colors"
+            className="rounded-xl border border-white/10 bg-white/[0.04] p-2 transition-colors hover:bg-white/[0.08] md:hidden"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -89,14 +93,14 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 py-4 space-y-4"
+            className="mt-4 space-y-4 rounded-2xl border border-white/10 bg-[#11161d]/95 p-5 backdrop-blur-xl md:hidden"
           >
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block py-2 text-gray-300 hover:text-white transition-colors"
+                className="block py-2 text-gray-300 transition-colors hover:text-white"
               >
                 {link.label}
               </a>
@@ -104,7 +108,7 @@ export default function Navbar() {
             <a
               href="#contacto"
               onClick={() => setIsOpen(false)}
-              className="block w-full px-6 py-3 bg-gradient-to-r from-primary-purple to-primary-blue rounded-lg font-semibold text-white text-center"
+              className="block w-full rounded-xl bg-gradient-to-r from-primary-purple to-primary-blue px-6 py-3 text-center font-semibold text-white"
             >
               Contáctame
             </a>

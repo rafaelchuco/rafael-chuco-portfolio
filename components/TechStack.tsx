@@ -33,7 +33,7 @@ const technologies = [
 
 export default function TechStack() {
   return (
-    <section id="tecnologias" className="py-20 px-6">
+    <section id="tecnologias" className="px-6 py-24">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -42,18 +42,18 @@ export default function TechStack() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary-purple font-semibold text-sm uppercase tracking-wider">
+          <span className="text-primary-purple font-semibold text-sm uppercase tracking-[0.22em]">
             Mis habilidades
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6">
+          <h2 className="mt-4 mb-6 text-4xl font-semibold tracking-[-0.04em] text-white lg:text-6xl">
             Tecnologías con las que{' '}
             <span className="bg-gradient-to-r from-primary-purple to-primary-blue bg-clip-text text-transparent">
-              trabajo
+              construyo
             </span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
           {technologies.map((tech, index) => (
             <motion.div
               key={index}
@@ -61,8 +61,8 @@ export default function TechStack() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05, duration: 0.5 }}
-              whileHover={{ y: -5, scale: 1.05 }}
-              className="glass rounded-xl p-6 text-center group hover:border-primary-purple/50 transition-all duration-300 relative overflow-hidden"
+              whileHover={{ y: -6, scale: 1.03 }}
+              className="group relative overflow-hidden rounded-[24px] border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] p-6 text-left transition-all duration-300 hover:border-primary-purple/20"
             >
               {/* Progress bar background */}
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-800">
@@ -75,14 +75,14 @@ export default function TechStack() {
                 />
               </div>
 
-              <div className="mb-4 group-hover:scale-110 transition-transform duration-300 flex justify-center">
+              <div className="mb-5 flex justify-start transition-transform duration-300 group-hover:scale-110">
                 <tech.icon className="w-12 h-12" style={{ color: tech.color }} />
               </div>
-              <h3 className="font-bold text-lg mb-1 text-white">
+              <h3 className="mb-1 text-lg font-semibold text-white">
                 {tech.name}
               </h3>
-              <p className="text-xs text-gray-500 mb-2">{tech.category}</p>
-              <div className="text-xs text-gray-400 font-mono">{tech.level}%</div>
+              <p className="mb-3 text-xs uppercase tracking-[0.18em] text-gray-500">{tech.category}</p>
+              <div className="text-xs font-mono text-gray-400">Nivel {tech.level}%</div>
             </motion.div>
           ))}
         </div>
@@ -95,8 +95,8 @@ export default function TechStack() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="mt-12 text-center"
         >
-          <p className="text-gray-400 text-lg">
-            Siempre aprendiendo y explorando nuevas tecnologías para crear mejores soluciones 🚀
+          <p className="text-lg text-gray-400">
+            Stack moderno para construir productos rápidos, mantenibles y listos para escalar.
           </p>
         </motion.div>
       </div>

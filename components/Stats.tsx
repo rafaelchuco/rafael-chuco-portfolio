@@ -7,39 +7,39 @@ const stats = [
   {
     icon: Calendar,
     value: '2+',
-    label: 'Años de experiencia',
+    label: 'años desarrollando productos',
     color: 'purple'
   },
   {
     icon: Target,
     value: '15+',
-    label: 'Proyectos completados',
+    label: 'proyectos construidos',
     color: 'blue'
   },
   {
     icon: Award,
-    value: '10+',
-    label: 'Clientes satisfechos',
+    value: 'Full',
+    label: 'stack de punta a punta',
     color: 'purple'
   },
   {
     icon: MapPin,
-    value: '100%',
-    label: 'Compromiso',
+    value: 'PE',
+    label: 'base en Lima, trabajo remoto',
     color: 'blue'
   }
 ];
 
 export default function Stats() {
   return (
-    <section className="py-12 px-6">
+    <section className="px-6 py-16">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid gap-5 md:grid-cols-2 xl:grid-cols-4"
         >
           {stats.map((stat, index) => {
             const Icon = stat.icon;
@@ -50,22 +50,22 @@ export default function Stats() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                whileHover={{ y: -5 }}
-                className="glass rounded-xl p-6 text-center group hover:border-primary-purple/50 transition-all duration-300"
+                whileHover={{ y: -6 }}
+                className="group rounded-[24px] border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] p-6 transition-all duration-300 hover:border-primary-purple/20 hover:shadow-[0_20px_50px_rgba(0,0,0,0.18)]"
               >
-                <div className={`w-12 h-12 mx-auto mb-4 rounded-full ${
+                <div className={`mb-5 flex h-12 w-12 items-center justify-center rounded-2xl ${
                   stat.color === 'purple' 
-                    ? 'bg-primary-purple/20 group-hover:bg-primary-purple/30' 
-                    : 'bg-primary-blue/20 group-hover:bg-primary-blue/30'
-                } flex items-center justify-center transition-all duration-300`}>
+                    ? 'bg-primary-purple/12 group-hover:bg-primary-purple/16' 
+                    : 'bg-primary-blue/12 group-hover:bg-primary-blue/16'
+                } transition-all duration-300`}>
                   <Icon className={`w-6 h-6 ${
                     stat.color === 'purple' ? 'text-primary-purple' : 'text-primary-blue'
                   }`} />
                 </div>
-                <h3 className="text-3xl lg:text-4xl font-bold mb-2 bg-gradient-to-r from-primary-purple to-primary-blue bg-clip-text text-transparent">
+                <h3 className="mb-2 text-3xl font-semibold tracking-[-0.03em] text-white lg:text-4xl">
                   {stat.value}
                 </h3>
-                <p className="text-gray-400 text-sm">{stat.label}</p>
+                <p className="max-w-[14rem] text-left text-sm leading-relaxed text-gray-400">{stat.label}</p>
               </motion.div>
             );
           })}
