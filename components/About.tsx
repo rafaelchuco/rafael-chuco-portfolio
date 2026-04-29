@@ -37,36 +37,6 @@ const education = [
   },
 ];
 
-const volunteering = [
-  {
-    org: 'LEAD TECSUP',
-    role: 'Presidente',
-    period: 'Diciembre 2025 - Actualidad',
-    area: 'Liderazgo estudiantil',
-    logoText: 'LEAD',
-    accent: 'text-primary-purple',
-    chip: 'bg-primary-purple/15 text-primary-purple',
-  },
-  {
-    org: 'IEEE ComSoc TECSUP',
-    role: 'Voluntario de Alianzas Estratégicas',
-    period: 'Marzo 2026 - Actualidad',
-    area: 'Relaciones institucionales',
-    logoText: 'COMSOC',
-    accent: 'text-primary-blue',
-    chip: 'bg-primary-blue/15 text-primary-blue',
-  },
-  {
-    org: 'IEEE Computer Society',
-    role: 'Director de RR.HH.',
-    period: 'Agosto 2025 - Actualidad',
-    area: 'Gestión de talento',
-    logoText: 'CS',
-    accent: 'text-violet-400',
-    chip: 'bg-violet-500/15 text-violet-400',
-  },
-];
-
 export default function About() {
   return (
     <section id="sobre-mi" className="py-28 px-6 relative overflow-hidden">
@@ -222,50 +192,6 @@ export default function About() {
             ))}
           </div>
         </div>
-
-        {/* Voluntariados */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.6 }}
-          className="mt-16"
-        >
-          <div className="mb-7 flex items-center justify-between gap-4">
-            <h3 className="text-2xl font-semibold text-white lg:text-3xl">Voluntariados</h3>
-            <span className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-gray-400">
-              Liderazgo y comunidad
-            </span>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {volunteering.map((item, i) => (
-              <motion.div
-                key={item.org}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.08 * i, duration: 0.45 }}
-                className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-5"
-              >
-                <div className="mb-4 flex items-start gap-4">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-[11px] font-bold tracking-[0.08em] text-gray-200">
-                    {item.logoText}
-                  </div>
-                  <div className="min-w-0">
-                    <p className={`text-xs font-semibold uppercase tracking-[0.18em] ${item.accent}`}>{item.org}</p>
-                    <p className="mt-1 text-base font-semibold text-white leading-tight">{item.role}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between gap-2">
-                  <span className={`rounded-full px-3 py-1 text-[11px] font-semibold ${item.chip}`}>{item.area}</span>
-                  <span className="text-xs text-gray-500">{item.period}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* Stats ribbon */}
         <motion.div
