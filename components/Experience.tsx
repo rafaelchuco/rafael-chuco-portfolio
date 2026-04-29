@@ -9,6 +9,7 @@ type ExperienceItem = {
   role: string;
   period: string;
   area: string;
+  details?: string;
   logo?: string;
   logoAlt?: string;
   logoText: string;
@@ -48,13 +49,34 @@ const volunteering: ExperienceItem[] = [
 
 const workExperience: ExperienceItem[] = [
   {
-    org: 'Tu próxima experiencia',
-    role: 'Pendiente por completar',
-    period: 'Por definir',
-    area: 'Experiencia laboral',
-    logoText: 'WORK',
-    accent: 'text-gray-300',
-    chip: 'bg-white/10 text-gray-300',
+    org: 'NTT DATA Europe & Latam',
+    role: 'Consultor SAP ABAP',
+    period: 'Marzo 2026 - Actualidad',
+    area: 'Lima, Perú · Híbrido',
+    details: 'Contrato de prácticas · SAP Fiori y SAPUI5',
+    logoText: 'NTT',
+    accent: 'text-primary-blue',
+    chip: 'bg-primary-blue/15 text-primary-blue',
+  },
+  {
+    org: 'Chiru MarketPlace',
+    role: 'Desarrollador de aplicaciones para móviles',
+    period: 'Diciembre 2025 - Marzo 2026',
+    area: 'Lima, Perú · Híbrido',
+    details: 'Jornada completa · Apps móviles y JavaScript',
+    logoText: 'CHIRU',
+    accent: 'text-primary-purple',
+    chip: 'bg-primary-purple/15 text-primary-purple',
+  },
+  {
+    org: 'Chiru MarketPlace',
+    role: 'Desarrollador Front-end',
+    period: 'Abril 2025 - Diciembre 2025',
+    area: 'Lima, Perú · Híbrido',
+    details: 'Jornada completa · React.js y diseño web adaptable',
+    logoText: 'CHIRU',
+    accent: 'text-violet-400',
+    chip: 'bg-violet-500/15 text-violet-400',
   },
 ];
 
@@ -78,6 +100,7 @@ function ExperienceCard({ item, delay }: { item: ExperienceItem; delay: number }
         <div className="min-w-0">
           <p className={`text-xs font-semibold uppercase tracking-[0.18em] ${item.accent}`}>{item.org}</p>
           <p className="mt-1 text-base font-semibold leading-tight text-white">{item.role}</p>
+          {item.details && <p className="mt-1 text-xs text-gray-400">{item.details}</p>}
         </div>
       </div>
 
