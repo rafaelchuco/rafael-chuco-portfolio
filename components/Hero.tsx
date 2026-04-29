@@ -1,8 +1,74 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useAnimationControls } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+
+const codeLines = [
+  { tokens: [{ t: 'const ', c: 'text-primary-blue' }, { t: 'dev', c: 'text-violet-300' }, { t: ' = {', c: 'text-gray-300' }] },
+  { tokens: [{ t: '  nombre', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: '"Rafael"', c: 'text-amber-300' }, { t: ',', c: 'text-gray-400' }] },
+  { tokens: [{ t: '  stack', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: '"Full Stack"', c: 'text-amber-300' }, { t: ',', c: 'text-gray-400' }] },
+  { tokens: [{ t: '  open', c: 'text-green-400' }, { t: ': ', c: 'text-gray-400' }, { t: 'true', c: 'text-primary-purple' }] },
+  { tokens: [{ t: '}', c: 'text-gray-300' }] },
+];
+
+function CodeCard() {
+  const [visibleLines, setVisibleLines] = useState(0);
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      setVisibleLines(i);
+      if (i >= codeLines.length) clearInterval(interval);
+    }, 320);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 30, y: 10 }}
+      animate={{ opacity: 1, x: 0, y: [0, -8, 0] }}
+      transition={{
+        opacity: { delay: 1.1, duration: 0.7 },
+        x: { delay: 1.1, duration: 0.7 },
+        y: { delay: 2, duration: 3.5, repeat: Infinity, ease: 'easeInOut' },
+      }}
+      className="absolute right-4 bottom-[35%] z-20 min-w-[210px] rounded-2xl border border-white/[0.08] bg-[#0A0F1A]/90 p-4 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+    >
+      {/* Header bar */}
+      <div className="flex items-center gap-1.5 mb-3">
+        <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
+        <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+        <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+        <span className="ml-2 text-[10px] text-gray-600 font-mono">dev.js</span>
+      </div>
+      {/* Code lines */}
+      <div className="font-mono text-[12px] leading-6 space-y-0">
+        {codeLines.map((line, li) => (
+          <div
+            key={li}
+            className={`transition-all duration-300 ${li < visibleLines ? 'opacity-100' : 'opacity-0'}`}
+          >
+            <span className="select-none text-gray-600 mr-3">{li + 1}</span>
+            {line.tokens.map((tok, ti) => (
+              <span key={ti} className={tok.c}>{tok.t}</span>
+            ))}
+            {/* blinking cursor on last visible line */}
+            {li === visibleLines - 1 && visibleLines < codeLines.length && (
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 0.7, repeat: Infinity }}
+                className="inline-block w-[7px] h-[13px] bg-primary-purple/80 ml-0.5 align-middle"
+              />
+            )}
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Hero() {
   return (
@@ -50,20 +116,8 @@ export default function Hero() {
             <span className="text-xs leading-tight text-gray-400">años de<br/>experiencia</span>
           </motion.div>
 
-          {/* Floating badge — stack */}
-          <motion.div
-            initial={{ opacity: 0, x: 30, y: 10 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.7, ease: 'easeOut' }}
-            className="absolute right-4 bottom-[38%] z-20 rounded-2xl border border-white/10 bg-[#0D1117]/80 px-4 py-3 backdrop-blur-md shadow-xl"
-          >
-            <p className="text-[11px] uppercase tracking-widest text-gray-500 mb-2">Stack principal</p>
-            <div className="flex items-center gap-2">
-              <span className="rounded-lg bg-white/[0.06] px-2.5 py-1 text-xs font-medium text-gray-200">React</span>
-              <span className="rounded-lg bg-white/[0.06] px-2.5 py-1 text-xs font-medium text-gray-200">Next.js</span>
-              <span className="rounded-lg bg-white/[0.06] px-2.5 py-1 text-xs font-medium text-gray-200">Django</span>
-            </div>
-          </motion.div>
+          {/* Floating badge — stack code card */}
+          <CodeCard />
 
           {/* Image */}
           <motion.div
