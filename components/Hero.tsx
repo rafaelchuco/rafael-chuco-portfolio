@@ -14,36 +14,81 @@ export default function Hero() {
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
 
-      <div className="relative z-10 mx-auto grid h-full max-w-7xl px-6 lg:grid-cols-2 lg:items-end lg:gap-16">
+      <div className="relative z-10 mx-auto grid h-full max-w-7xl px-6 lg:grid-cols-2 lg:items-center lg:gap-16">
         {/* Left side - Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
-          className="relative order-2 hidden lg:flex lg:order-1 lg:justify-start lg:items-end lg:h-full"
-        >
-          <div className="relative w-full h-full">
-            {/* Image container */}
-            <div className="relative w-full h-full">
-              <Image
-                src="/images/rafael.png"
-                alt="Foto de perfil de Rafael Chuco"
-                fill
-                sizes="(max-width: 640px) 360px, (max-width: 1024px) 460px, (max-width: 1280px) 620px, 720px"
-                style={{ objectFit: 'contain' }}
-                className="transition-transform duration-500 ease-in-out"
-                priority
-              />
-            </div>
-          </div>
-        </motion.div>
+        <div className="relative order-2 hidden lg:flex lg:order-1 lg:justify-start lg:items-end lg:h-full lg:pt-16">
+          {/* Glow behind image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.6 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 1.2, ease: 'easeOut' }}
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[70%] h-[50%] bg-primary-purple/20 rounded-full blur-[80px] pointer-events-none"
+          />
+          {/* Orbit ring */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 1, ease: 'easeOut' }}
+            className="absolute bottom-[8%] left-1/2 -translate-x-1/2 w-[72%] aspect-square rounded-full border border-primary-purple/10 pointer-events-none"
+          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6, duration: 1, ease: 'easeOut' }}
+            className="absolute bottom-[8%] left-1/2 -translate-x-1/2 w-[85%] aspect-square rounded-full border border-white/[0.04] pointer-events-none"
+          />
+
+          {/* Floating badge — years */}
+          <motion.div
+            initial={{ opacity: 0, x: -30, y: 10 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ delay: 1, duration: 0.7, ease: 'easeOut' }}
+            style={{ y: 0 }}
+            className="absolute left-2 bottom-[30%] z-20 flex items-center gap-3 rounded-2xl border border-white/10 bg-[#0D1117]/80 px-4 py-3 backdrop-blur-md shadow-xl"
+          >
+            <span className="text-2xl font-bold text-white">2+</span>
+            <span className="text-xs leading-tight text-gray-400">años de<br/>experiencia</span>
+          </motion.div>
+
+          {/* Floating badge — available */}
+          <motion.div
+            initial={{ opacity: 0, x: 30, y: 10 }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ delay: 1.1, duration: 0.7, ease: 'easeOut' }}
+            className="absolute right-4 bottom-[38%] z-20 flex items-center gap-3 rounded-2xl border border-green-500/20 bg-green-500/10 px-4 py-3 backdrop-blur-md shadow-xl"
+          >
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-60"></span>
+              <span className="relative h-2.5 w-2.5 rounded-full bg-green-400"></span>
+            </span>
+            <span className="text-xs leading-tight text-gray-300">Disponible para<br/>nuevos proyectos</span>
+          </motion.div>
+
+          {/* Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 1, ease: 'easeOut' }}
+            className="relative w-full h-full"
+          >
+            <Image
+              src="/images/rafael.png"
+              alt="Foto de perfil de Rafael Chuco"
+              fill
+              sizes="(max-width: 1280px) 620px, 720px"
+              style={{ objectFit: 'contain', objectPosition: 'bottom' }}
+              className="drop-shadow-2xl"
+              priority
+            />
+          </motion.div>
+        </div>
 
         {/* Right side - Text content */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="order-1 lg:order-2"
+          className="order-1 lg:order-2 flex items-center"
         >
           <div className="max-w-2xl space-y-8">
             {/* Name + subtitle */}
@@ -54,7 +99,7 @@ export default function Hero() {
               className="space-y-6"
             >
               <h1 className="text-5xl font-semibold leading-[0.9] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[6rem]">
-                <span className="bg-gradient-to-r from-white via-violet-200 to-primary-blue bg-clip-text text-transparent">Rafael Chuco</span>
+                <span className="bg-gradient-to-br from-white via-white/90 to-primary-purple/80 bg-clip-text text-transparent">Rafael Chuco</span>
               </h1>
               <div className="flex items-center gap-4">
                 <div className="h-px w-12 bg-gradient-to-r from-primary-purple to-primary-blue" />
@@ -119,7 +164,7 @@ export default function Hero() {
               className="flex items-center gap-3"
             >
               <a
-                href="https://github.com/rafael-chuco"
+                href="https://github.com/rafaelchuco"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-gray-500 transition-all duration-300 hover:border-primary-purple/30 hover:bg-primary-purple/[0.08] hover:text-white"
