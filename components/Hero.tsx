@@ -244,11 +244,11 @@ export default function Hero() {
               className="space-y-6"
             >
               <h1 className="text-5xl font-semibold leading-[0.9] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[6rem]">
-                <span className="bg-gradient-to-br from-white via-white/90 to-primary-purple/80 bg-clip-text text-transparent">Rafael Chuco</span>
+                <span className="text-white">Rafael Chuco</span>
               </h1>
               <div className="flex items-center gap-4">
-                <div className="h-px w-12 bg-gradient-to-r from-primary-purple to-primary-blue" />
-                <p className="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">Desarrollador Web</p>
+                <div className="h-px w-12 bg-gradient-to-r from-primary-blue to-primary-purple" />
+                <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/70">Desarrollador Full Stack</p>
               </div>
               <p className="max-w-lg text-lg leading-relaxed text-gray-400 lg:text-xl">
                 Convierto ideas en productos digitales modernos, claros y escalables — desde web full stack hasta soluciones SAP empresariales.
@@ -260,7 +260,7 @@ export default function Hero() {
                 transition={{ delay: 0.35, duration: 0.6 }}
                 className="flex flex-wrap gap-2"
               >
-                {['SAP BTP', 'ABAP', 'SAP Fiori', 'SAPUI5', 'HANA', 'Joule AI', 'GitHub Copilot'].map((tag, i) => (
+                {['React', 'Next.js', 'Python', 'SAP BTP', 'SAP Fiori', 'ABAP', 'Django', 'Joule AI', 'GitHub Copilot', 'SAPUI5'].map((tag, i) => (
                   <motion.span
                     key={tag}
                     initial={{ opacity: 0, scale: 0.85 }}
@@ -272,29 +272,6 @@ export default function Hero() {
                   </motion.span>
                 ))}
               </motion.div>
-            </motion.div>
-
-            {/* Stats row */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.38, duration: 0.6 }}
-              className="flex items-center gap-8 border-y border-white/[0.06] py-6"
-            >
-              <div>
-                <p className="text-3xl font-semibold tracking-tight text-white">15+</p>
-                <p className="mt-0.5 text-sm text-gray-500">proyectos</p>
-              </div>
-              <div className="h-10 w-px bg-white/10"></div>
-              <div>
-                <p className="text-3xl font-semibold tracking-tight text-white">2+</p>
-                <p className="mt-0.5 text-sm text-gray-500">años de exp.</p>
-              </div>
-              <div className="h-10 w-px bg-white/10"></div>
-              <div>
-                <p className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-primary-purple to-primary-blue bg-clip-text text-transparent">Full stack</p>
-                <p className="mt-0.5 text-sm text-gray-500">frontend & backend</p>
-              </div>
             </motion.div>
 
             {/* CTAs */}
