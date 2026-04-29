@@ -40,10 +40,10 @@ const sapTechnologies = [
     desc: 'Business Technology Platform',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <circle cx="24" cy="24" r="20" fill="url(#btpGrad)" opacity="0.15"/>
-        <path d="M14 32 L24 14 L34 32 Z" stroke="#F59E0B" strokeWidth="2" strokeLinejoin="round" fill="none"/>
-        <circle cx="24" cy="24" r="4" fill="#F59E0B"/>
-        <defs><linearGradient id="btpGrad" x1="0" y1="0" x2="48" y2="48"><stop stopColor="#F59E0B"/><stop offset="1" stopColor="#EF4444"/></linearGradient></defs>
+        <circle cx="24" cy="24" r="20" fill="url(#btpGrad)" opacity="0.1"/>
+        <path d="M14 32 L24 14 L34 32 Z" stroke="#7C3AED" strokeWidth="2" strokeLinejoin="round" fill="none"/>
+        <circle cx="24" cy="24" r="4" fill="#7C3AED"/>
+        <defs><linearGradient id="btpGrad" x1="0" y1="0" x2="48" y2="48"><stop stopColor="#7C3AED"/><stop offset="1" stopColor="#2563EB"/></linearGradient></defs>
       </svg>
     ),
   },
@@ -53,9 +53,9 @@ const sapTechnologies = [
     desc: 'Advanced Business App Programming',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <rect x="8" y="14" width="32" height="20" rx="4" stroke="#FB923C" strokeWidth="2" fill="none"/>
-        <path d="M16 24 L20 20 L16 16" stroke="#FB923C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <line x1="22" y1="28" x2="32" y2="28" stroke="#FB923C" strokeWidth="2" strokeLinecap="round"/>
+        <rect x="8" y="14" width="32" height="20" rx="4" stroke="#2563EB" strokeWidth="2" fill="none"/>
+        <path d="M16 24 L20 20 L16 16" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <line x1="22" y1="28" x2="32" y2="28" stroke="#2563EB" strokeWidth="2" strokeLinecap="round"/>
       </svg>
     ),
   },
@@ -65,10 +65,10 @@ const sapTechnologies = [
     desc: 'Design System & Apps empresariales',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <rect x="10" y="10" width="12" height="12" rx="3" fill="#F59E0B" opacity="0.8"/>
-        <rect x="26" y="10" width="12" height="12" rx="3" fill="#F59E0B" opacity="0.5"/>
-        <rect x="10" y="26" width="12" height="12" rx="3" fill="#F59E0B" opacity="0.5"/>
-        <rect x="26" y="26" width="12" height="12" rx="3" fill="#F59E0B" opacity="0.3"/>
+        <rect x="10" y="10" width="12" height="12" rx="3" fill="#7C3AED" opacity="0.9"/>
+        <rect x="26" y="10" width="12" height="12" rx="3" fill="#7C3AED" opacity="0.5"/>
+        <rect x="10" y="26" width="12" height="12" rx="3" fill="#2563EB" opacity="0.5"/>
+        <rect x="26" y="26" width="12" height="12" rx="3" fill="#2563EB" opacity="0.9"/>
       </svg>
     ),
   },
@@ -78,9 +78,9 @@ const sapTechnologies = [
     desc: 'UI Development Toolkit para SAP',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <polygon points="24,8 40,36 8,36" stroke="#FBBF24" strokeWidth="2" fill="none" strokeLinejoin="round"/>
-        <line x1="24" y1="18" x2="24" y2="30" stroke="#FBBF24" strokeWidth="2.5" strokeLinecap="round"/>
-        <circle cx="24" cy="33" r="2" fill="#FBBF24"/>
+        <polygon points="24,8 40,36 8,36" stroke="#7C3AED" strokeWidth="2" fill="none" strokeLinejoin="round"/>
+        <line x1="24" y1="18" x2="24" y2="30" stroke="#7C3AED" strokeWidth="2.5" strokeLinecap="round"/>
+        <circle cx="24" cy="33" r="2" fill="#7C3AED"/>
       </svg>
     ),
   },
@@ -90,9 +90,9 @@ const sapTechnologies = [
     desc: 'In-Memory Cloud Database',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <ellipse cx="24" cy="18" rx="14" ry="6" stroke="#F97316" strokeWidth="2" fill="none"/>
-        <path d="M10 18 C10 18 10 30 10 30 C10 33.3 16.3 36 24 36 C31.7 36 38 33.3 38 30 L38 18" stroke="#F97316" strokeWidth="2" fill="none"/>
-        <line x1="10" y1="24" x2="38" y2="24" stroke="#F97316" strokeWidth="1.5" strokeDasharray="3 2" opacity="0.6"/>
+        <ellipse cx="24" cy="18" rx="14" ry="6" stroke="#2563EB" strokeWidth="2" fill="none"/>
+        <path d="M10 18 C10 18 10 30 10 30 C10 33.3 16.3 36 24 36 C31.7 36 38 33.3 38 30 L38 18" stroke="#2563EB" strokeWidth="2" fill="none"/>
+        <line x1="10" y1="24" x2="38" y2="24" stroke="#2563EB" strokeWidth="1.5" strokeDasharray="3 2" opacity="0.5"/>
       </svg>
     ),
   },
@@ -102,10 +102,9 @@ const sapTechnologies = [
     desc: 'Copilot de Inteligencia Artificial SAP',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <circle cx="24" cy="24" r="10" stroke="#FCD34D" strokeWidth="2" fill="none"/>
-        <path d="M24 10 L24 6M24 42 L24 38M38 24 L42 24M6 24 L10 24" stroke="#FCD34D" strokeWidth="2" strokeLinecap="round"/>
-        <circle cx="24" cy="24" r="4" fill="#FCD34D" opacity="0.7"/>
-        <path d="M20 20 L28 28M28 20 L20 28" stroke="#FCD34D" strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/>
+        <circle cx="24" cy="24" r="10" stroke="#7C3AED" strokeWidth="2" fill="none"/>
+        <path d="M24 10 L24 6M24 42 L24 38M38 24 L42 24M6 24 L10 24" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round"/>
+        <circle cx="24" cy="24" r="4" fill="#7C3AED" opacity="0.7"/>
       </svg>
     ),
   },
@@ -115,9 +114,9 @@ const sapTechnologies = [
     desc: 'Low-code automation & apps',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <rect x="10" y="22" width="8" height="16" rx="2" fill="#F59E0B" opacity="0.6"/>
-        <rect x="20" y="14" width="8" height="24" rx="2" fill="#F59E0B" opacity="0.8"/>
-        <rect x="30" y="8" width="8" height="30" rx="2" fill="#F59E0B"/>
+        <rect x="10" y="22" width="8" height="16" rx="2" fill="#2563EB" opacity="0.4"/>
+        <rect x="20" y="14" width="8" height="24" rx="2" fill="#2563EB" opacity="0.7"/>
+        <rect x="30" y="8" width="8" height="30" rx="2" fill="#7C3AED"/>
       </svg>
     ),
   },
@@ -127,10 +126,11 @@ const sapTechnologies = [
     desc: 'Automaciones e integraciones SAP',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
-        <circle cx="12" cy="24" r="6" stroke="#FB923C" strokeWidth="2" fill="none"/>
-        <circle cx="36" cy="24" r="6" stroke="#FB923C" strokeWidth="2" fill="none"/>
-        <line x1="18" y1="24" x2="30" y2="24" stroke="#FB923C" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M22 20 L26 24 L22 28" stroke="#FB923C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="24" r="6" stroke="#7C3AED" strokeWidth="2" fill="none"/>
+        <circle cx="36" cy="24" r="6" stroke="#2563EB" strokeWidth="2" fill="none"/>
+        <line x1="18" y1="24" x2="30" y2="24" stroke="url(#connGrad)" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M22 20 L26 24 L22 28" stroke="#2563EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <defs><linearGradient id="connGrad" x1="18" y1="0" x2="30" y2="0"><stop stopColor="#7C3AED"/><stop offset="1" stopColor="#2563EB"/></linearGradient></defs>
       </svg>
     ),
   },
@@ -188,8 +188,8 @@ export default function TechStack() {
         >
           <div className="flex items-center gap-4 mb-3">
             <div className="h-px flex-1 bg-white/[0.06]" />
-            <span className="flex items-center gap-2.5 rounded-full border border-amber-500/20 bg-amber-500/[0.06] px-4 py-1.5 text-sm font-semibold tracking-wide text-amber-400">
-              <span className="h-2 w-2 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]" />
+            <span className="flex items-center gap-2.5 rounded-full border border-primary-purple/20 bg-primary-purple/[0.06] px-4 py-1.5 text-sm font-semibold tracking-wide text-primary-purple">
+              <span className="h-2 w-2 rounded-full bg-primary-purple shadow-[0_0_8px_rgba(124,58,237,0.8)]" />
               SAP Ecosystem
             </span>
             <div className="h-px flex-1 bg-white/[0.06]" />
@@ -206,13 +206,13 @@ export default function TechStack() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.07, duration: 0.5 }}
               whileHover={{ y: -6, scale: 1.03 }}
-              className="group relative rounded-[24px] border border-amber-500/10 bg-gradient-to-br from-amber-500/[0.06] to-orange-500/[0.02] p-6 text-left transition-all duration-300 hover:border-amber-500/25 hover:shadow-[0_16px_40px_rgba(251,191,36,0.06)]"
+              className="group relative rounded-[24px] border border-white/10 bg-gradient-to-br from-primary-purple/[0.06] to-primary-blue/[0.03] p-6 text-left transition-all duration-300 hover:border-primary-purple/25 hover:shadow-[0_16px_40px_rgba(124,58,237,0.08)]"
             >
               <div className="mb-5 transition-transform duration-300 group-hover:scale-110">
                 {tech.icon}
               </div>
               <h3 className="mb-1 text-lg font-semibold text-white">{tech.name}</h3>
-              <p className="mb-2 text-xs uppercase tracking-[0.18em] text-amber-600/70">{tech.category}</p>
+              <p className="mb-2 text-xs uppercase tracking-[0.18em] text-primary-purple/60">{tech.category}</p>
               <p className="text-[11px] text-gray-500 leading-relaxed">{tech.desc}</p>
             </motion.div>
           ))}
