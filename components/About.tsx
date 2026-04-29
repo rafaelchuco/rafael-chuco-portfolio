@@ -114,69 +114,85 @@ export default function About() {
                 </motion.div>
               </div>
 
-              {/* Education & speciality */}
-              <div className="space-y-3">
-                {/* TECSUP */}
-                <motion.a
-                  href="https://www.tecsup.edu.pe/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4, duration: 0.4 }}
-                  whileHover={{ scale: 1.01, borderColor: 'rgba(124,58,237,0.25)' }}
-                  className="flex items-center gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-300"
-                >
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white shadow-lg p-2">
-                    <Image src="/images/tecsup-logo.jpg" alt="TECSUP" width={52} height={52} className="object-contain rounded-lg" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-primary-purple mb-0.5">Educación</p>
-                    <p className="text-sm font-semibold text-white leading-tight">Diseño y Desarrollo de Software</p>
-                    <p className="text-xs text-gray-500 mt-0.5">TECSUP · Lima, Perú</p>
-                  </div>
-                </motion.a>
+              {/* Education cards */}
+              <div className="space-y-2 pt-1">
+                <p className="text-[10px] uppercase tracking-[0.2em] text-gray-600 mb-3">Formación</p>
+                <div className="grid grid-cols-2 gap-3">
+                  {/* TECSUP */}
+                  <motion.a
+                    href="https://www.tecsup.edu.pe/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                    whileHover={{ y: -3 }}
+                    className="group relative flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-5 text-center overflow-hidden transition-all duration-300 hover:border-primary-purple/30"
+                  >
+                    <motion.div
+                      className="absolute inset-0 bg-primary-purple/[0.05] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.3)] p-2">
+                      <Image src="/images/tecsup-logo.jpg" alt="TECSUP" width={48} height={48} className="object-contain rounded-xl" />
+                    </div>
+                    <div className="relative z-10">
+                      <p className="text-xs font-semibold text-white leading-tight">TECSUP</p>
+                      <p className="text-[10px] text-gray-500 mt-0.5">Software</p>
+                    </div>
+                    <motion.div
+                      animate={{ opacity: [0.4, 0.8, 0.4] }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                      className="absolute -bottom-4 -right-4 w-16 h-16 bg-primary-purple/20 rounded-full blur-xl pointer-events-none"
+                    />
+                  </motion.a>
 
-                {/* Conversa */}
-                <motion.a
-                  href="https://conversa.tecsup.edu.pe/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.5, duration: 0.4 }}
-                  whileHover={{ scale: 1.01, borderColor: 'rgba(37,99,235,0.25)' }}
-                  className="flex items-center gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-300"
-                >
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white shadow-lg p-2">
-                    <Image src="/images/conversa-logo.svg" alt="Conversa" width={52} height={52} className="object-contain" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-primary-blue mb-0.5">Inglés</p>
-                    <p className="text-sm font-semibold text-white leading-tight">Conversa Language School</p>
-                    <p className="text-xs text-gray-500 mt-0.5">TECSUP · Lima, Perú</p>
-                  </div>
-                </motion.a>
+                  {/* Conversa */}
+                  <motion.a
+                    href="https://conversa.tecsup.edu.pe/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
+                    whileHover={{ y: -3 }}
+                    className="group relative flex flex-col items-center gap-3 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-5 text-center overflow-hidden transition-all duration-300 hover:border-primary-blue/30"
+                  >
+                    <motion.div
+                      className="absolute inset-0 bg-primary-blue/[0.05] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.3)] p-2">
+                      <Image src="/images/conversa-logo.svg" alt="Conversa" width={48} height={48} className="object-contain" />
+                    </div>
+                    <div className="relative z-10">
+                      <p className="text-xs font-semibold text-white leading-tight">Conversa</p>
+                      <p className="text-[10px] text-gray-500 mt-0.5">Inglés</p>
+                    </div>
+                    <motion.div
+                      animate={{ opacity: [0.4, 0.8, 0.4] }}
+                      transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
+                      className="absolute -bottom-4 -right-4 w-16 h-16 bg-primary-blue/20 rounded-full blur-xl pointer-events-none"
+                    />
+                  </motion.a>
+                </div>
 
-                {/* Speciality */}
+                {/* Speciality chip */}
                 <motion.div
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.6, duration: 0.4 }}
-                  className="flex items-start gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+                  className="flex items-center gap-3 rounded-2xl border border-violet-500/15 bg-gradient-to-r from-primary-purple/[0.08] to-primary-blue/[0.05] px-4 py-3"
                 >
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-primary-purple/10">
-                    <svg className="h-6 w-6 text-primary-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-primary-purple/15">
+                    <svg className="h-4 w-4 text-primary-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
                     </svg>
                   </div>
-                  <div className="min-w-0">
-                    <p className="text-[10px] uppercase tracking-[0.18em] text-violet-400 mb-0.5">Especialidad</p>
-                    <p className="text-sm font-semibold text-white leading-tight">Full Stack Development</p>
-                    <p className="text-xs text-gray-400 leading-relaxed mt-1">Frontend y backend con foco en rendimiento, legibilidad y escalabilidad.</p>
+                  <div>
+                    <p className="text-xs font-semibold text-white">Full Stack Development</p>
+                    <p className="text-[10px] text-gray-500">Frontend · Backend · SAP</p>
                   </div>
                 </motion.div>
               </div>
