@@ -59,14 +59,21 @@ export default function Hero() {
           </motion.p>
 
           {/* Highlight text */}
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-lg text-gray-400 italic"
+            className="flex items-center gap-3 text-lg"
           >
-            ✨ Transformo ideas en productos reales
-          </motion.p>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-purple/5 border border-primary-purple/20">
+              <span className="text-2xl">⚡</span>
+              <span className="text-gray-300">Rápido aprendizaje</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-blue/5 border border-primary-blue/20">
+              <span className="text-2xl">🎯</span>
+              <span className="text-gray-300">Orientado a resultados</span>
+            </div>
+          </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
@@ -149,33 +156,31 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Floating tech dragon - subtle and small */}
-            <motion.div
-              animate={{ 
-                y: [0, -15, 0],
-                rotate: [0, 5, 0]
-              }}
-              transition={{ 
-                duration: 6, 
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="absolute -bottom-8 -right-8 w-32 h-32 opacity-80"
-            >
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-primary-purple to-primary-blue opacity-20 blur-xl absolute"></div>
-              <div className="relative z-10 text-6xl">🐉</div>
-            </motion.div>
-
-            {/* Code decoration */}
+            {/* Tech badges floating */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="absolute -top-8 -right-8 bg-dark-card border border-dark-border rounded-lg p-4 glass hidden lg:block"
+              className="absolute -top-6 -right-6 bg-dark-card border border-dark-border rounded-xl p-3 glass hidden lg:flex items-center gap-2"
             >
-              <code className="text-primary-purple text-sm">
-                {'</>'}
-              </code>
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+              <span className="text-sm font-medium">Disponible</span>
+            </motion.div>
+
+            {/* Code decoration */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
+              className="absolute -bottom-6 -left-6 bg-dark-card border border-dark-border rounded-xl p-4 glass hidden lg:block"
+            >
+              <div className="flex items-center gap-2">
+                <code className="text-primary-purple text-2xl font-bold">{'</>'}</code>
+                <div className="text-xs text-gray-400">
+                  <div className="font-semibold text-white">2+ años</div>
+                  <div>experiencia</div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </motion.div>

@@ -40,9 +40,12 @@ export default function Navbar() {
             href="#inicio"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="text-2xl font-bold bg-gradient-to-r from-primary-purple to-primary-blue bg-clip-text text-transparent"
+            className="flex items-center gap-2"
           >
-            RC
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-purple to-primary-blue flex items-center justify-center font-bold text-lg">
+              RC
+            </div>
+            <span className="text-xl font-bold text-white hidden sm:block">Rafael Chuco</span>
           </motion.a>
 
           {/* Desktop navigation */}

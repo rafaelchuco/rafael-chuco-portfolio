@@ -3,18 +3,18 @@
 import { motion } from 'framer-motion';
 
 const technologies = [
-  { name: 'React', icon: '⚛️', category: 'Frontend', color: 'text-cyan-400' },
-  { name: 'Next.js', icon: '▲', category: 'Frontend', color: 'text-white' },
-  { name: 'TypeScript', icon: '📘', category: 'Language', color: 'text-blue-400' },
-  { name: 'Python', icon: '🐍', category: 'Backend', color: 'text-yellow-400' },
-  { name: 'Django', icon: '🎸', category: 'Backend', color: 'text-green-500' },
-  { name: 'Node.js', icon: '🟢', category: 'Backend', color: 'text-green-400' },
-  { name: 'Laravel', icon: '🔺', category: 'Backend', color: 'text-red-400' },
-  { name: 'Vue.js', icon: '💚', category: 'Frontend', color: 'text-emerald-400' },
-  { name: 'Tailwind CSS', icon: '🎨', category: 'Styling', color: 'text-cyan-300' },
-  { name: 'MySQL', icon: '🐬', category: 'Database', color: 'text-blue-300' },
-  { name: 'MongoDB', icon: '🍃', category: 'Database', color: 'text-green-400' },
-  { name: 'Git', icon: '🔀', category: 'Tools', color: 'text-orange-400' },
+  { name: 'React', icon: '⚛️', category: 'Frontend', color: 'text-cyan-400', level: 85 },
+  { name: 'Next.js', icon: '▲', category: 'Frontend', color: 'text-white', level: 80 },
+  { name: 'TypeScript', icon: '📘', category: 'Language', color: 'text-blue-400', level: 75 },
+  { name: 'Python', icon: '🐍', category: 'Backend', color: 'text-yellow-400', level: 90 },
+  { name: 'Django', icon: '🎸', category: 'Backend', color: 'text-green-500', level: 85 },
+  { name: 'Laravel', icon: '🔺', category: 'Backend', color: 'text-red-400', level: 80 },
+  { name: 'Vue.js', icon: '💚', category: 'Frontend', color: 'text-emerald-400', level: 75 },
+  { name: 'Tailwind', icon: '🎨', category: 'Styling', color: 'text-cyan-300', level: 90 },
+  { name: 'MySQL', icon: '🐬', category: 'Database', color: 'text-blue-300', level: 85 },
+  { name: 'PostgreSQL', icon: '🐘', category: 'Database', color: 'text-blue-400', level: 80 },
+  { name: 'MongoDB', icon: '🍃', category: 'Database', color: 'text-green-400', level: 75 },
+  { name: 'Git', icon: '🔀', category: 'Tools', color: 'text-orange-400', level: 90 },
 ];
 
 export default function TechStack() {
@@ -48,15 +48,27 @@ export default function TechStack() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.05, duration: 0.5 }}
               whileHover={{ y: -5, scale: 1.05 }}
-              className="glass rounded-xl p-6 text-center group hover:border-primary-purple/50 transition-all duration-300"
+              className="glass rounded-xl p-6 text-center group hover:border-primary-purple/50 transition-all duration-300 relative overflow-hidden"
             >
+              {/* Progress bar background */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-800">
+                <motion.div
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${tech.level}%` }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 + 0.3, duration: 0.8 }}
+                  className={`h-full bg-gradient-to-r from-primary-purple to-primary-blue`}
+                />
+              </div>
+
               <div className="text-5xl mb-3 group-hover:scale-110 transition-transform duration-300">
                 {tech.icon}
               </div>
               <h3 className={`font-bold text-lg mb-1 ${tech.color}`}>
                 {tech.name}
               </h3>
-              <p className="text-xs text-gray-500">{tech.category}</p>
+              <p className="text-xs text-gray-500 mb-2">{tech.category}</p>
+              <div className="text-xs text-gray-400 font-mono">{tech.level}%</div>
             </motion.div>
           ))}
         </div>

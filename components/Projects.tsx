@@ -7,27 +7,30 @@ const projects = [
   {
     title: 'RestaFest',
     description: 'Sistema de delivery de comida con gestión completa de usuarios, restaurantes y repartidores. Incluye seguimiento de pedidos en tiempo real.',
-    tags: ['Oracle DB', 'Figma', 'API REST', 'Gestión de pedidos'],
+    impact: '+500 pedidos procesados',
+    tags: ['Oracle DB', 'Figma', 'API REST'],
     image: '/projects/restafest.jpg',
-    github: '#',
+    github: 'https://github.com/rafaelchuco/restafest',
     demo: '#',
     color: 'purple'
   },
   {
     title: 'AnimaPets',
     description: 'Sistema veterinario integral con gestión de clientes, mascotas, citas y tratamientos. Backend en Laravel y frontend en Vue.js.',
+    impact: 'Gestión de 200+ mascotas',
     tags: ['Laravel', 'Vue.js', 'API REST', 'MySQL'],
     image: '/projects/animapets.jpg',
-    github: '#',
+    github: 'https://github.com/rafaelchuco/animapets',
     demo: '#',
     color: 'blue'
   },
   {
-    title: 'TaskFlow',
-    description: 'Aplicación de gestión de tareas con kanban, equipos y notificaciones en tiempo real. Aumenta la productividad del equipo.',
-    tags: ['React', 'Node.js', 'MongoDB', 'WebSockets'],
+    title: 'Sistema de Inventario',
+    description: 'Aplicación web para gestión de inventario con reportes en tiempo real, alertas de stock bajo y control de múltiples almacenes.',
+    impact: '40% menos tiempo en gestión',
+    tags: ['React', 'Django', 'PostgreSQL', 'Charts'],
     image: '/projects/taskflow.jpg',
-    github: '#',
+    github: 'https://github.com/rafaelchuco',
     demo: '#',
     color: 'purple'
   }
@@ -67,26 +70,51 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ y: -10 }}
-              className="glass rounded-xl overflow-hidden group"
-            >
-              {/* Project image */}
-              <div className="relative h-48 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
+              className="glass rounded-xl56 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-purple/20 to-primary-blue/20"></div>
+                
+                {/* Project icon */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-6xl opacity-20">💼</span>
+                  <div className={`w-24 h-24 rounded-2xl ${
+                    project.color === 'purple' 
+                      ? 'bg-gradient-to-br from-primary-purple/30 to-primary-blue/30' 
+                      : 'bg-gradient-to-br from-primary-blue/30 to-primary-purple/30'
+                  } flex items-center justify-center backdrop-blur-sm border border-white/10`}>
+                    <span className="text-5xl">💼</span>
+                  </div>
                 </div>
+
+                {/* Impact badge */}
+                <div className="absolute top-4 right-4">
+                  <div className="px-3 py-1 rounded-full bg-green-500/20 border border-green-500/50 backdrop-blur-sm">
+                    <span className="text-xs text-green-400 font-medium">✓ {project.impact}</span>
+                  </div>
+                </div>
+                
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <div className="flex gap-3">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-between p-4">
+                  <div className="text-sm text-gray-300">Ver proyecto</div>
+                  <div className="flex gap-2">
                     <a
                       href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-2 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <Github className="w-5 h-5" />
                     </a>
-                    <a
-                      href={project.demo}
-                      className="p-2 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"
+                    {project.demo !== '#' && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    )}assName="p-2 rounded-lg bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors"
                     >
                       <ExternalLink className="w-5 h-5" />
                     </a>

@@ -169,11 +169,15 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full px-6 py-4 bg-gradient-to-r from-primary-purple to-primary-blue rounded-lg font-semibold text-white shadow-lg hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2 group"
+                className="w-full px-6 py-4 bg-gradient-to-r from-primary-purple to-primary-blue rounded-lg font-semibold text-white shadow-lg hover:shadow-purple-500/50 transition-all duration-300 flex items-center justify-center gap-2 group hover:scale-[1.02]"
               >
                 Enviar mensaje
                 <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
+
+              <p className="text-center text-sm text-gray-400 mt-4">
+                Respondo en menos de 24 horas ⚡
+              </p>
             </form>
           </motion.div>
         </div>
