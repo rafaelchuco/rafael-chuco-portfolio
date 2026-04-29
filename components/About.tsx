@@ -71,36 +71,6 @@ export default function About() {
           </h2>
         </motion.div>
 
-        {/* Laptop image */}
-        <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.95 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
-          className="relative flex justify-center mb-16"
-        >
-          {/* Glow under laptop */}
-          <motion.div
-            animate={{ opacity: [0.3, 0.6, 0.3], scale: [1, 1.08, 1] }}
-            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-24 bg-primary-purple/25 rounded-full blur-3xl pointer-events-none"
-          />
-          <motion.div
-            animate={{ y: [-8, 8, -8] }}
-            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-            className="relative max-w-lg w-full drop-shadow-[0_32px_80px_rgba(124,58,237,0.25)]"
-          >
-            <Image
-              src="/images/laptop.png"
-              alt="Laptop con código"
-              width={700}
-              height={500}
-              className="w-full object-contain"
-              priority
-            />
-          </motion.div>
-        </motion.div>
-
         {/* Main grid */}
         <div className="grid items-start gap-14 lg:grid-cols-[1.3fr_1fr]">
 
@@ -110,8 +80,37 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="space-y-10"
+            className="relative space-y-10"
           >
+            {/* Laptop flotando — decorativo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
+              animate={{ y: [-6, 6, -6] }}
+              className="absolute -top-8 -right-4 w-36 pointer-events-none hidden lg:block"
+            >
+              <motion.div
+                animate={{ y: [-6, 6, -6] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+                className="drop-shadow-[0_16px_40px_rgba(124,58,237,0.3)] opacity-70"
+              >
+                <Image
+                  src="/images/laptop.png"
+                  alt=""
+                  width={180}
+                  height={130}
+                  className="w-full object-contain"
+                />
+              </motion.div>
+              <motion.div
+                animate={{ opacity: [0.2, 0.5, 0.2] }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-primary-purple/30 rounded-full blur-xl"
+              />
+            </motion.div>
+
             <div className="space-y-5">
               <h3 className="text-2xl font-semibold leading-snug text-white lg:text-3xl">
                 Especializado en convertir ideas en productos web modernos, con código limpio y foco en experiencia.
