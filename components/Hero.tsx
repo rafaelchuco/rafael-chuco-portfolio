@@ -6,20 +6,23 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-x-hidden px-6 pb-16 pt-28 lg:min-h-screen lg:pb-20 lg:pt-32">
-      {/* Background gradient effects - subtle */}
-      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary-purple/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-primary-blue/10 rounded-full blur-3xl"></div>
+    <section className="relative overflow-hidden h-screen">
+      {/* Background gradient effects */}
+      <div className="absolute top-0 left-0 w-[700px] h-[700px] bg-primary-purple/[0.07] rounded-full blur-3xl -translate-x-1/4 -translate-y-1/4"></div>
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary-blue/[0.07] rounded-full blur-3xl translate-x-1/4 translate-y-1/4"></div>
+      <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-primary-purple/[0.04] rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2"></div>
+      {/* Subtle grid overlay */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
 
-      <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:min-h-[calc(100vh-8rem)] lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div className="relative z-10 mx-auto grid h-full max-w-7xl px-6 lg:grid-cols-2 lg:items-end lg:gap-16">
         {/* Left side - Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.8, ease: 'easeOut' }}
-          className="relative order-2 flex justify-center lg:order-1 lg:justify-start lg:items-end"
+          className="relative order-2 hidden lg:flex lg:order-1 lg:justify-start lg:items-end lg:h-full"
         >
-          <div className="relative w-full max-w-[600px] sm:max-w-[700px] lg:max-w-full" style={{ height: '85vh', minHeight: '560px' }}>
+          <div className="relative w-full h-full">
             {/* Image container */}
             <div className="relative w-full h-full">
               <Image
@@ -43,102 +46,102 @@ export default function Hero() {
           className="order-1 lg:order-2"
         >
           <div className="max-w-2xl space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.6 }}
-              className="inline-flex items-center gap-3 rounded-full border border-primary-purple/20 bg-gradient-to-r from-primary-purple/12 to-primary-blue/10 px-4 py-2 text-sm text-gray-200 backdrop-blur-sm"
-            >
-              <span className="h-2 w-2 rounded-full bg-primary-blue shadow-[0_0_12px_rgba(37,99,235,0.8)]" />
-              Full Stack Developer
-            </motion.div>
-
+            {/* Name + subtitle */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.6 }}
-              className="space-y-5"
+              className="space-y-6"
             >
-              <h1 className="text-6xl font-semibold leading-[0.9] tracking-[-0.04em] text-white sm:text-7xl lg:text-8xl xl:text-[7rem]">
-                Rafael Chuco
+              <h1 className="text-5xl font-semibold leading-[0.9] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[6rem]">
+                <span className="bg-gradient-to-r from-white via-violet-200 to-primary-blue bg-clip-text text-transparent">Rafael Chuco</span>
               </h1>
-              <div className="h-px w-32 bg-gradient-to-r from-primary-purple via-primary-blue to-transparent" />
-              <p className="max-w-xl text-lg leading-relaxed text-gray-300 sm:text-xl lg:text-2xl">
-                Desarrollo productos web modernos, claros y escalables que convierten necesidades reales en experiencias digitales bien ejecutadas.
+              <div className="flex items-center gap-4">
+                <div className="h-px w-12 bg-gradient-to-r from-primary-purple to-primary-blue" />
+                <p className="text-sm font-medium uppercase tracking-[0.2em] text-gray-500">Desarrollador Web</p>
+              </div>
+              <p className="max-w-lg text-lg leading-relaxed text-gray-400 lg:text-xl">
+                Convierto ideas en productos digitales modernos, claros y escalables, de principio a fin.
               </p>
             </motion.div>
 
+            {/* Stats row */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.38, duration: 0.6 }}
-              className="grid gap-3 sm:grid-cols-3"
+              className="flex items-center gap-8 border-y border-white/[0.06] py-6"
             >
-              <div className="rounded-2xl border border-primary-purple/14 bg-gradient-to-br from-primary-purple/[0.08] to-white/[0.02] px-4 py-4">
-                <p className="text-2xl font-semibold text-primary-purple">15+</p>
-                <p className="mt-1 text-sm text-gray-400">proyectos entregados</p>
+              <div>
+                <p className="text-3xl font-semibold tracking-tight text-white">15+</p>
+                <p className="mt-0.5 text-sm text-gray-500">proyectos</p>
               </div>
-              <div className="rounded-2xl border border-primary-blue/14 bg-gradient-to-br from-primary-blue/[0.08] to-white/[0.02] px-4 py-4">
-                <p className="text-2xl font-semibold text-primary-blue">Full stack</p>
-                <p className="mt-1 text-sm text-gray-400">frontend y backend</p>
+              <div className="h-10 w-px bg-white/10"></div>
+              <div>
+                <p className="text-3xl font-semibold tracking-tight text-white">2+</p>
+                <p className="mt-0.5 text-sm text-gray-500">años de exp.</p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4">
-                <p className="text-2xl font-semibold bg-gradient-to-r from-primary-purple to-primary-blue bg-clip-text text-transparent">Enfoque</p>
-                <p className="mt-1 text-sm text-gray-400">producto, claridad y resultado</p>
+              <div className="h-10 w-px bg-white/10"></div>
+              <div>
+                <p className="text-3xl font-semibold tracking-tight bg-gradient-to-r from-primary-purple to-primary-blue bg-clip-text text-transparent">Full stack</p>
+                <p className="mt-0.5 text-sm text-gray-500">frontend & backend</p>
               </div>
             </motion.div>
 
+            {/* CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="flex flex-wrap items-center gap-4 pt-2"
+              className="flex flex-wrap items-center gap-4"
             >
               <a
                 href="#proyectos"
-                className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary-purple to-primary-blue px-7 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_50px_rgba(124,58,237,0.28)]"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-primary-purple to-primary-blue px-8 py-4 font-semibold text-white shadow-[0_8px_32px_rgba(124,58,237,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(124,58,237,0.38)]"
               >
+                <span className="absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 Ver proyectos
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
               <a
                 href="#contacto"
-                className="inline-flex items-center rounded-xl border border-primary-blue/20 bg-primary-blue/[0.05] px-7 py-4 font-semibold text-white transition-all duration-300 hover:border-primary-blue/35 hover:bg-primary-blue/[0.10]"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07]"
               >
                 Contáctame
               </a>
             </motion.div>
 
+            {/* Social links */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.62, duration: 0.6 }}
-              className="flex items-center gap-5 pt-1 text-gray-500"
+              className="flex items-center gap-3"
             >
               <a
                 href="https://github.com/rafael-chuco"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors duration-300 hover:text-primary-purple"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-gray-500 transition-all duration-300 hover:border-primary-purple/30 hover:bg-primary-purple/[0.08] hover:text-white"
                 aria-label="GitHub"
               >
-                <Github className="h-5 w-5" />
+                <Github className="h-4 w-4" />
               </a>
               <a
                 href="https://www.linkedin.com/in/rafael-chuco/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors duration-300 hover:text-primary-blue"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-gray-500 transition-all duration-300 hover:border-primary-blue/30 hover:bg-primary-blue/[0.08] hover:text-white"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-4 w-4" />
               </a>
               <a
                 href="mailto:rafael.chuco1908@gmail.com"
-                className="transition-colors duration-300 hover:text-primary-purple"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-gray-500 transition-all duration-300 hover:border-primary-purple/30 hover:bg-primary-purple/[0.08] hover:text-white"
                 aria-label="Email"
               >
-                <Mail className="h-5 w-5" />
+                <Mail className="h-4 w-4" />
               </a>
             </motion.div>
           </div>
