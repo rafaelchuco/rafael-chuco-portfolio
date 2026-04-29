@@ -54,6 +54,8 @@ const workExperience: ExperienceItem[] = [
     period: 'Marzo 2026 - Actualidad',
     area: 'Lima, Perú · Híbrido',
     details: 'Contrato de prácticas · SAP Fiori y SAPUI5',
+    logo: '/images/NTT.png',
+    logoAlt: 'NTT DATA',
     logoText: 'NTT',
     accent: 'text-primary-blue',
     chip: 'bg-primary-blue/15 text-primary-blue',
@@ -64,6 +66,8 @@ const workExperience: ExperienceItem[] = [
     period: 'Diciembre 2025 - Marzo 2026',
     area: 'Lima, Perú · Híbrido',
     details: 'Jornada completa · Apps móviles y JavaScript',
+    logo: '/images/CHIRU.png',
+    logoAlt: 'Chiru MarketPlace',
     logoText: 'CHIRU',
     accent: 'text-primary-purple',
     chip: 'bg-primary-purple/15 text-primary-purple',
@@ -74,6 +78,8 @@ const workExperience: ExperienceItem[] = [
     period: 'Abril 2025 - Diciembre 2025',
     area: 'Lima, Perú · Híbrido',
     details: 'Jornada completa · React.js y diseño web adaptable',
+    logo: '/images/CHIRU.png',
+    logoAlt: 'Chiru MarketPlace',
     logoText: 'CHIRU',
     accent: 'text-violet-400',
     chip: 'bg-violet-500/15 text-violet-400',
@@ -90,7 +96,13 @@ function ExperienceCard({ item, delay }: { item: ExperienceItem; delay: number }
       className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-5"
     >
       <div className="mb-4 flex items-start gap-4">
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-[11px] font-bold tracking-[0.08em] text-gray-200">
+        <div
+          className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border text-[11px] font-bold tracking-[0.08em] ${
+            item.logo
+              ? 'border-white/40 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.18)]'
+              : 'border-white/10 bg-white/[0.06] text-gray-200'
+          }`}
+        >
           {item.logo ? (
             <Image src={item.logo} alt={item.logoAlt ?? item.org} width={56} height={56} className="h-10 w-10 object-contain" />
           ) : (
