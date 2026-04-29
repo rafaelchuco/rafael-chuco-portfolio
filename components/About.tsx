@@ -82,35 +82,6 @@ export default function About() {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="relative space-y-10"
           >
-            {/* Laptop flotando — decorativo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.8, ease: 'easeOut' }}
-              animate={{ y: [-6, 6, -6] }}
-              className="absolute -top-8 -right-4 w-36 pointer-events-none hidden lg:block"
-            >
-              <motion.div
-                animate={{ y: [-6, 6, -6] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-                className="drop-shadow-[0_16px_40px_rgba(124,58,237,0.3)] opacity-70"
-              >
-                <Image
-                  src="/images/laptop.png"
-                  alt=""
-                  width={180}
-                  height={130}
-                  className="w-full object-contain"
-                />
-              </motion.div>
-              <motion.div
-                animate={{ opacity: [0.2, 0.5, 0.2] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-24 h-6 bg-primary-purple/30 rounded-full blur-xl"
-              />
-            </motion.div>
-
             <div className="space-y-5">
               <h3 className="text-2xl font-semibold leading-snug text-white lg:text-3xl">
                 Especializado en convertir ideas en productos web modernos, con código limpio y foco en experiencia.
@@ -146,8 +117,37 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right — Education cards (hero style) */}
-          <div className="space-y-4">
+          {/* Right — Education cards + laptop behind */}
+          <div className="relative space-y-4">
+            {/* Laptop flotando — detrás de las cards (z-0) */}
+            <motion.div
+              initial={{ opacity: 0, x: 40, scale: 0.85 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ delay: 0.2, duration: 0.9, ease: 'easeOut' }}
+              className="absolute -right-20 top-4 w-[260px] pointer-events-none z-0"
+            >
+              <motion.div
+                animate={{ y: [-10, 10, -10] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                className="drop-shadow-[0_20px_60px_rgba(124,58,237,0.35)] opacity-50"
+              >
+                <Image
+                  src="/images/laptop.png"
+                  alt=""
+                  width={260}
+                  height={190}
+                  className="w-full object-contain"
+                />
+              </motion.div>
+              <motion.div
+                animate={{ opacity: [0.2, 0.5, 0.2] }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-36 h-6 bg-primary-purple/30 rounded-full blur-2xl"
+              />
+            </motion.div>
+
+            {/* Education cards — encima del laptop (z-10) */}
             {education.map((ed) => (
               <motion.a
                 key={ed.href}
@@ -159,7 +159,7 @@ export default function About() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ delay: ed.delay, duration: 0.6 }}
                 whileHover={{ y: -4 }}
-                className={`group relative flex items-center gap-6 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] px-7 py-6 overflow-hidden transition-all duration-300 ${ed.border} block`}
+                className={`relative z-10 group flex items-center gap-6 rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] px-7 py-6 overflow-hidden transition-all duration-300 ${ed.border} block`}
               >
                 {/* Animated background shimmer */}
                 <motion.div
