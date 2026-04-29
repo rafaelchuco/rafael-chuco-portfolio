@@ -116,6 +116,7 @@ export default function About() {
 
               {/* Education & speciality */}
               <div className="space-y-3">
+                {/* TECSUP */}
                 <motion.a
                   href="https://www.tecsup.edu.pe/"
                   target="_blank"
@@ -124,19 +125,20 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4, duration: 0.4 }}
-                  whileHover={{ scale: 1.01 }}
-                  className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 p-4 transition-all duration-300 hover:border-primary-purple/20 hover:bg-primary-purple/[0.04]"
+                  whileHover={{ scale: 1.01, borderColor: 'rgba(124,58,237,0.25)' }}
+                  className="flex items-center gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-300"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white p-1.5">
-                    <Image src="/images/tecsup-logo.jpg" alt="TECSUP" width={40} height={40} className="object-contain" />
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white shadow-lg p-2">
+                    <Image src="/images/tecsup-logo.jpg" alt="TECSUP" width={52} height={52} className="object-contain rounded-lg" />
                   </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-gray-500 mb-0.5">Educación</p>
-                    <p className="text-sm font-semibold text-white">Diseño y Desarrollo de Software</p>
-                    <p className="text-xs text-gray-500">TECSUP · Lima, Perú</p>
+                  <div className="min-w-0">
+                    <p className="text-[10px] uppercase tracking-[0.18em] text-primary-purple mb-0.5">Educación</p>
+                    <p className="text-sm font-semibold text-white leading-tight">Diseño y Desarrollo de Software</p>
+                    <p className="text-xs text-gray-500 mt-0.5">TECSUP · Lima, Perú</p>
                   </div>
                 </motion.a>
 
+                {/* Conversa */}
                 <motion.a
                   href="https://conversa.tecsup.edu.pe/"
                   target="_blank"
@@ -145,35 +147,36 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5, duration: 0.4 }}
-                  whileHover={{ scale: 1.01 }}
-                  className="flex items-center gap-4 rounded-2xl border border-white/10 bg-black/20 p-4 transition-all duration-300 hover:border-primary-blue/20 hover:bg-primary-blue/[0.04]"
+                  whileHover={{ scale: 1.01, borderColor: 'rgba(37,99,235,0.25)' }}
+                  className="flex items-center gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-300"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white p-1.5">
-                    <Image src="/images/conversa-logo.svg" alt="Conversa" width={40} height={40} className="object-contain" />
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white shadow-lg p-2">
+                    <Image src="/images/conversa-logo.svg" alt="Conversa" width={52} height={52} className="object-contain" />
                   </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-gray-500 mb-0.5">Inglés</p>
-                    <p className="text-sm font-semibold text-white">Conversa Language School</p>
-                    <p className="text-xs text-gray-500">TECSUP · Lima, Perú</p>
+                  <div className="min-w-0">
+                    <p className="text-[10px] uppercase tracking-[0.18em] text-primary-blue mb-0.5">Inglés</p>
+                    <p className="text-sm font-semibold text-white leading-tight">Conversa Language School</p>
+                    <p className="text-xs text-gray-500 mt-0.5">TECSUP · Lima, Perú</p>
                   </div>
                 </motion.a>
 
+                {/* Speciality */}
                 <motion.div
                   initial={{ opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.6, duration: 0.4 }}
-                  className="flex items-start gap-4 rounded-2xl border border-white/10 bg-black/20 p-4"
+                  className="flex items-start gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-4"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-purple/10">
-                    <svg className="h-5 w-5 text-primary-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-primary-purple/10">
+                    <svg className="h-6 w-6 text-primary-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
                     </svg>
                   </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-wider text-gray-500 mb-0.5">Especialidad</p>
-                    <p className="text-sm font-semibold text-white">Full Stack Development</p>
-                    <p className="text-xs text-gray-400 leading-relaxed mt-1">Desarrollo frontend y backend con foco en rendimiento, legibilidad y escalabilidad.</p>
+                  <div className="min-w-0">
+                    <p className="text-[10px] uppercase tracking-[0.18em] text-violet-400 mb-0.5">Especialidad</p>
+                    <p className="text-sm font-semibold text-white leading-tight">Full Stack Development</p>
+                    <p className="text-xs text-gray-400 leading-relaxed mt-1">Frontend y backend con foco en rendimiento, legibilidad y escalabilidad.</p>
                   </div>
                 </motion.div>
               </div>
@@ -182,30 +185,6 @@ export default function About() {
 
           {/* Right content */}
           <div className="space-y-8">
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: '-60px' }}
-              className="space-y-4"
-            >
-              <motion.p variants={itemVariants} className="text-lg leading-relaxed text-gray-300">
-                Estudio{' '}
-                <span className="font-semibold text-primary-purple">Diseño y Desarrollo de Software en TECSUP</span>{' '}
-                y complemento esa base con práctica constante en proyectos reales, donde priorizo estructura, rendimiento y experiencia visual cuidada.
-              </motion.p>
-              <motion.p variants={itemVariants} className="text-lg leading-relaxed text-gray-300">
-                Trabajo con enfoque{' '}
-                <span className="font-semibold text-primary-blue">full stack</span>{' '}—
-                desde interfaces en{' '}
-                <span className="font-semibold text-white">React y Next.js</span>{' '}
-                hasta APIs con{' '}
-                <span className="font-semibold text-white">Django y Laravel</span>, incluyendo soluciones{' '}
-                <span className="font-semibold text-violet-400">SAP (BTP, ABAP, Fiori)</span>{' '}
-                en entornos empresariales.
-              </motion.p>
-            </motion.div>
-
             {/* Strengths */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
