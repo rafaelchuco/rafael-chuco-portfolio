@@ -26,22 +26,22 @@ export default function Footer() {
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">Navegación</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#inicio" className="text-gray-400 transition-colors hover:text-white">
+                <a href="/#inicio" className="text-gray-400 transition-colors hover:text-white">
                   Inicio
                 </a>
               </li>
               <li>
-                <a href="#sobre-mi" className="text-gray-400 transition-colors hover:text-white">
+                <a href="/#sobre-mi" className="text-gray-400 transition-colors hover:text-white">
                   Sobre mí
                 </a>
               </li>
               <li>
-                <a href="#proyectos" className="text-gray-400 transition-colors hover:text-white">
+                <a href="/#proyectos" className="text-gray-400 transition-colors hover:text-white">
                   Proyectos
                 </a>
               </li>
               <li>
-                <a href="#contacto" className="text-gray-400 transition-colors hover:text-white">
+                <a href="/contacto" className="text-gray-400 transition-colors hover:text-white">
                   Contacto
                 </a>
               </li>

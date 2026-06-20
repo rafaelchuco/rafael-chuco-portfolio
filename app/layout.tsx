@@ -1,15 +1,28 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { siteConfig, getSiteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Rafael Chuco | Desarrollador Full Stack",
-  description: "Portfolio de Rafael Chuco - Desarrollador Full Stack especializado en crear soluciones digitales modernas, escalables y centradas en resultados.",
+  metadataBase: getSiteUrl(),
+  title: siteConfig.title,
+  description: siteConfig.description,
   keywords: ["desarrollador", "full stack", "react", "next.js", "django", "portfolio"],
-  authors: [{ name: "Rafael Chuco" }],
+  authors: [{ name: siteConfig.name }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Rafael Chuco | Desarrollador Full Stack",
-    description: "Portfolio profesional de Rafael Chuco",
+    title: siteConfig.title,
+    description: siteConfig.description,
     type: "website",
+    url: siteConfig.siteUrl,
+    siteName: siteConfig.name,
+    locale: "es_PE",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
   },
 };
 

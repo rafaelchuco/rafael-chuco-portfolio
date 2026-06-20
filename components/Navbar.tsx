@@ -5,12 +5,12 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { href: '#inicio', label: 'Inicio' },
-  { href: '#sobre-mi', label: 'Sobre mí' },
-  { href: '#experiencias', label: 'Experiencias' },
-  { href: '#proyectos', label: 'Proyectos' },
-  { href: '#tecnologias', label: 'Tecnologías' },
-  { href: '#contacto', label: 'Contacto' }
+  { href: '/#inicio', label: 'Inicio' },
+  { href: '/#sobre-mi', label: 'Sobre mí' },
+  { href: '/#experiencias', label: 'Experiencias' },
+  { href: '/#proyectos', label: 'Proyectos' },
+  { href: '/#tecnologias', label: 'Tecnologías' },
+  { href: '/contacto', label: 'Contacto' }
 ];
 
 export default function Navbar() {
@@ -38,7 +38,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.a
-            href="#inicio"
+            href="/"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="flex items-center gap-3"
@@ -67,7 +67,7 @@ export default function Navbar() {
           </div>
 
           <motion.a
-            href="#contacto"
+            href="/contacto"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
@@ -104,7 +104,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#contacto"
+              href="/contacto"
               onClick={() => setIsOpen(false)}
               className="block w-full rounded-xl border border-primary-purple/20 bg-gradient-to-r from-primary-purple/90 to-primary-blue/90 px-6 py-3 text-center font-semibold text-white"
             >

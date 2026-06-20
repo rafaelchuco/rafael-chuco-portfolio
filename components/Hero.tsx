@@ -370,7 +370,7 @@ export default function Hero() {
               className="flex flex-wrap items-center gap-4"
             >
               <a
-                href="#proyectos"
+                href="/#proyectos"
                 className="group relative inline-flex items-center gap-2 overflow-hidden rounded-2xl bg-gradient-to-r from-primary-purple to-primary-blue px-8 py-4 font-semibold text-white shadow-[0_8px_32px_rgba(124,58,237,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_48px_rgba(124,58,237,0.38)]"
               >
                 <span className="absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -378,7 +378,7 @@ export default function Hero() {
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </a>
               <a
-                href="#contacto"
+                href="/contacto"
                 className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07]"
               >
                 Contáctame
