@@ -4,12 +4,33 @@ import { siteConfig, getSiteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
-  title: siteConfig.title,
+  title: {
+    default: siteConfig.title,
+    template: siteConfig.titleTemplate,
+  },
   description: siteConfig.description,
-  keywords: ["desarrollador", "full stack", "react", "next.js", "django", "portfolio"],
-  authors: [{ name: siteConfig.name }],
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.name, url: siteConfig.siteUrl }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "technology",
+  classification: "Portfolio",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   alternates: {
     canonical: "/",
+    languages: {
+      "es-PE": "/",
+    },
   },
   openGraph: {
     title: siteConfig.title,
@@ -17,13 +38,69 @@ export const metadata: Metadata = {
     type: "website",
     url: siteConfig.siteUrl,
     siteName: siteConfig.name,
-    locale: "es_PE",
+    locale: siteConfig.locale,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} — Desarrollador Full Stack & SAP`,
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
     description: siteConfig.description,
+    creator: siteConfig.social.twitter,
+    images: ["/og-image.png"],
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "",
+  },
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  url: siteConfig.siteUrl,
+  email: siteConfig.email,
+  telephone: siteConfig.phone,
+  jobTitle: siteConfig.jobTitle,
+  description: siteConfig.shortDescription,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lima",
+    addressCountry: "PE",
+  },
+  sameAs: [siteConfig.social.github, siteConfig.social.linkedin],
+  knowsAbout: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Python",
+    "Django",
+    "SAP BTP",
+    "SAP ABAP",
+    "SAP Fiori",
+    "SAPUI5",
+    "Full Stack Development",
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.siteUrl,
+  description: siteConfig.description,
+  author: {
+    "@type": "Person",
+    name: siteConfig.name,
+  },
+  inLanguage: siteConfig.language,
 };
 
 export default function RootLayout({
@@ -33,6 +110,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+      </head>
       <body className="antialiased overflow-x-hidden">
         {children}
       </body>

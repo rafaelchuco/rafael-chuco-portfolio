@@ -1,18 +1,44 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site";
 
-const routes = [
+const base = siteConfig.siteUrl;
+
+const routes: MetadataRoute.Sitemap = [
   {
-    url: siteConfig.siteUrl,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 1,
+    url: base,
+    lastModified: new Date("2026-06-20"),
+    changeFrequency: "weekly",
+    priority: 1.0,
   },
   {
-    url: `${siteConfig.siteUrl}/contacto`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
+    url: `${base}/#sobre-mi`,
+    lastModified: new Date("2026-06-20"),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${base}/#experiencias`,
+    lastModified: new Date("2026-06-20"),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+  {
+    url: `${base}/#proyectos`,
+    lastModified: new Date("2026-06-20"),
+    changeFrequency: "monthly",
     priority: 0.8,
+  },
+  {
+    url: `${base}/#tecnologias`,
+    lastModified: new Date("2026-06-20"),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  },
+  {
+    url: `${base}/contacto`,
+    lastModified: new Date("2026-06-20"),
+    changeFrequency: "monthly",
+    priority: 0.9,
   },
 ];
 
