@@ -61,7 +61,6 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
               rel="noopener noreferrer"
               aria-label={`Ver código de ${project.title} en GitHub`}
               className="rounded-lg bg-white/10 p-2 backdrop-blur-sm transition-colors hover:bg-white/20"
-              onClick={(e) => e.stopPropagation()}
             >
               <Github className="h-4 w-4" aria-hidden="true" />
             </a>
@@ -72,7 +71,6 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
                 rel="noopener noreferrer"
                 aria-label={`Ver demo de ${project.title}`}
                 className="rounded-lg bg-white/10 p-2 backdrop-blur-sm transition-colors hover:bg-white/20"
-                onClick={(e) => e.stopPropagation()}
               >
                 <ExternalLink className="h-4 w-4" aria-hidden="true" />
               </a>
