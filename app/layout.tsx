@@ -12,6 +12,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
+  verification: {
+    google: "A0-NiakDliYya8pYwUTGTVmvT4fqLIOnliBUeCubx8s",
+  },
   title: {
     default: siteConfig.title,
     template: siteConfig.titleTemplate,
