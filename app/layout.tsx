@@ -12,9 +12,6 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
-  verification: {
-    google: "A0-NiakDliYya8pYwUTGTVmvT4fqLIOnliBUeCubx8s",
-  },
   title: {
     default: siteConfig.title,
     template: siteConfig.titleTemplate,
@@ -68,7 +65,7 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "",
+    google: "A0-NiakDliYya8pYwUTGTVmvT4fqLIOnliBUeCubx8s",
   },
 };
 
