@@ -1,4 +1,4 @@
-const defaultSiteUrl = "https://rafaelchuco.dev";
+const defaultSiteUrl = "https://rafaelchuco.is-a.dev";
 
 function normalizeSiteUrl(url: string) {
   return url.endsWith("/") ? url.slice(0, -1) : url;
