@@ -1,40 +1,9 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
-
-const projects = [
-  {
-    title: 'RestaFest',
-    description: 'Plataforma de delivery para gestionar pedidos, restaurantes y repartidores con un flujo claro para operación diaria.',
-    impact: 'Pedidos y operación en tiempo real',
-    tags: ['Oracle DB', 'Figma', 'API REST'],
-    image: '/projects/restafest.jpg',
-    github: 'https://github.com/rafaelchuco/restafest',
-    demo: '#',
-    color: 'purple'
-  },
-  {
-    title: 'AnimaPets',
-    description: 'Sistema veterinario para administrar clientes, mascotas, citas y tratamientos desde una interfaz práctica y ordenada.',
-    impact: 'Control integral para atención clínica',
-    tags: ['Laravel', 'Vue.js', 'API REST', 'MySQL'],
-    image: '/projects/animapets.jpg',
-    github: 'https://github.com/rafaelchuco/animapets',
-    demo: '#',
-    color: 'blue'
-  },
-  {
-    title: 'Sistema de Inventario',
-    description: 'Aplicación web para controlar stock, detectar faltantes y simplificar la gestión operativa con reportes claros.',
-    impact: 'Menos fricción en control y seguimiento',
-    tags: ['React', 'Django', 'PostgreSQL', 'Charts'],
-    image: '/projects/taskflow.jpg',
-    github: 'https://github.com/rafaelchuco',
-    demo: '#',
-    color: 'purple'
-  }
-];
+import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { projects } from '@/lib/data';
 
 export default function Projects() {
   return (
@@ -64,7 +33,7 @@ export default function Projects() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <motion.div
-              key={index}
+              key={project.slug}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -151,6 +120,28 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+
+                {/* Footer actions */}
+                <div className="flex items-center justify-between pt-2">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="flex items-center gap-1.5 text-sm font-medium text-primary-purple hover:underline"
+                  >
+                    Ver detalle
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`GitHub de ${project.title}`}
+                    className="flex items-center gap-1.5 text-sm text-gray-500 transition-colors hover:text-white"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Github className="h-4 w-4" aria-hidden="true" />
+                    GitHub
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -164,15 +155,13 @@ export default function Projects() {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="text-center mt-12"
         >
-          <a
-            href="https://github.com/rafaelchuco"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/projects"
             className="group inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/[0.03] px-6 py-3 text-gray-300 transition-all duration-300 hover:border-primary-purple/30 hover:text-white"
           >
             Ver todos los proyectos
-            <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-          </a>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+          </Link>
         </motion.div>
       </div>
     </section>

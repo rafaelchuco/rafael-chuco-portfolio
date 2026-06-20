@@ -80,8 +80,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
-            aria-expanded={isOpen ? 'true' : 'false'}
-            aria-controls="mobile-menu"
+            aria-expanded={isOpen}
             className="rounded-xl border border-white/10 bg-white/[0.04] p-2 transition-colors hover:bg-white/[0.08] md:hidden"
           >
             {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
