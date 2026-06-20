@@ -20,6 +20,14 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: siteConfig.siteUrl,
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} — Desarrollador Full Stack & SAP`,
+      },
+    ],
   },
 };
 

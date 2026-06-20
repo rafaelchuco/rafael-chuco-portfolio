@@ -30,6 +30,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
+      aria-label="Navegación principal"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'border-b border-white/10 bg-[#0D1117]/72 backdrop-blur-2xl' : 'bg-transparent'
       }`}
@@ -91,6 +92,8 @@ export default function Navbar() {
         {isOpen && (
           <motion.div
             id="mobile-menu"
+            role="navigation"
+            aria-label="Menú móvil"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
