@@ -202,17 +202,17 @@ export default function About() {
           className="mt-16 flex flex-wrap items-center justify-center gap-6 rounded-2xl border border-white/[0.07] bg-white/[0.02] py-5 px-8"
         >
           <div className="flex items-center gap-2.5">
-            <Calendar className="h-4 w-4 text-primary-purple" />
+            <Calendar className="h-4 w-4 text-primary-purple" aria-hidden="true" />
             <span className="text-sm text-gray-400">2+ años de experiencia</span>
           </div>
           <div className="h-4 w-px bg-white/10 hidden sm:block" />
           <div className="flex items-center gap-2.5">
-            <MapPin className="h-4 w-4 text-primary-blue" />
+            <MapPin className="h-4 w-4 text-primary-blue" aria-hidden="true" />
             <span className="text-sm text-gray-400">Lima, Perú</span>
           </div>
           <div className="h-4 w-px bg-white/10 hidden sm:block" />
           <div className="flex items-center gap-2.5">
-            <Code2 className="h-4 w-4 text-violet-400" />
+            <Code2 className="h-4 w-4 text-violet-400" aria-hidden="true" />
             <span className="text-sm text-gray-400">Full Stack · SAP</span>
           </div>
         </motion.div>

@@ -65,7 +65,7 @@ export default function Contact() {
                   className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-all duration-300 hover:border-primary-purple/25 hover:bg-primary-purple/[0.05]"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-purple/15 transition-colors group-hover:bg-primary-purple/20">
-                    <Mail className="w-6 h-6 text-primary-purple" />
+                    <Mail className="w-6 h-6 text-primary-purple" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">Email</p>
@@ -78,7 +78,7 @@ export default function Contact() {
                   className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-all duration-300 hover:border-primary-blue/25 hover:bg-primary-blue/[0.05]"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-blue/15 transition-colors group-hover:bg-primary-blue/20">
-                    <Phone className="w-6 h-6 text-primary-blue" />
+                    <Phone className="w-6 h-6 text-primary-blue" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">Teléfono</p>
@@ -88,7 +88,7 @@ export default function Contact() {
 
                 <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-purple/15">
-                    <MapPin className="w-6 h-6 text-primary-purple" />
+                    <MapPin className="w-6 h-6 text-primary-purple" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">Ubicación</p>
@@ -172,7 +172,7 @@ export default function Contact() {
                 className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-purple to-primary-blue px-6 py-4 font-semibold text-white shadow-[0_18px_48px_rgba(124,58,237,0.24)] transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_22px_56px_rgba(124,58,237,0.30)]"
               >
                 Enviar mensaje
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </button>
 
               <p className="mt-4 text-center text-sm text-gray-400">

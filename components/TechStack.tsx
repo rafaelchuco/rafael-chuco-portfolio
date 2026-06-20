@@ -170,7 +170,7 @@ export default function TechStack() {
               whileHover={{ y: -6, scale: 1.03 }}
               className="group relative rounded-[24px] border border-white/10 bg-gradient-to-br from-white/[0.05] to-white/[0.02] p-6 text-left transition-all duration-300 hover:border-primary-purple/20"
             >
-              <div className="mb-5 flex justify-start transition-transform duration-300 group-hover:scale-110">
+              <div className="mb-5 flex justify-start transition-transform duration-300 group-hover:scale-110" aria-hidden="true">
                 <tech.icon className="w-12 h-12" style={{ color: tech.color }} />
               </div>
               <h3 className="mb-1 text-lg font-semibold text-white">{tech.name}</h3>
@@ -209,7 +209,7 @@ export default function TechStack() {
               whileHover={{ y: -6, scale: 1.03 }}
               className="group relative rounded-[24px] border border-white/10 bg-gradient-to-br from-primary-purple/[0.06] to-primary-blue/[0.03] p-6 text-left transition-all duration-300 hover:border-primary-purple/25 hover:shadow-[0_16px_40px_rgba(124,58,237,0.08)]"
             >
-              <div className="mb-5 transition-transform duration-300 group-hover:scale-110">
+              <div className="mb-5 transition-transform duration-300 group-hover:scale-110" aria-hidden="true">
                 {tech.icon}
               </div>
               <h3 className="mb-1 text-lg font-semibold text-white">{tech.name}</h3>

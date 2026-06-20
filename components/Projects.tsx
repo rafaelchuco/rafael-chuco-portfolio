@@ -102,20 +102,22 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`Ver código de ${project.title} en GitHub`}
                       className="rounded-lg bg-white/10 p-2 backdrop-blur-sm transition-colors hover:bg-white/20"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <Github className="w-5 h-5" />
+                      <Github className="w-5 h-5" aria-hidden="true" />
                     </a>
                     {project.demo !== '#' && (
                       <a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`Ver demo de ${project.title}`}
                         className="rounded-lg bg-white/10 p-2 backdrop-blur-sm transition-colors hover:bg-white/20"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        <ExternalLink className="w-5 h-5" />
+                        <ExternalLink className="w-5 h-5" aria-hidden="true" />
                       </a>
                     )}
                   </div>
@@ -169,7 +171,7 @@ export default function Projects() {
             className="group inline-flex items-center gap-2 rounded-xl border border-white/12 bg-white/[0.03] px-6 py-3 text-gray-300 transition-all duration-300 hover:border-primary-purple/30 hover:text-white"
           >
             Ver todos los proyectos
-            <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
           </a>
         </motion.div>
       </div>

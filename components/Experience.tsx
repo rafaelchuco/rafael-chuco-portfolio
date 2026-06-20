@@ -169,7 +169,7 @@ export default function Experience() {
           <div>
             <div className="mb-6 flex items-center gap-3">
               <div className="rounded-xl border border-white/10 bg-white/[0.03] p-2">
-                <Briefcase className="h-4 w-4 text-primary-blue" />
+                <Briefcase className="h-4 w-4 text-primary-blue" aria-hidden="true" />
               </div>
               <h3 className="text-2xl font-semibold text-white">Experiencia laboral</h3>
             </div>
@@ -183,7 +183,7 @@ export default function Experience() {
           <div>
             <div className="mb-6 flex items-center gap-3">
               <div className="rounded-xl border border-white/10 bg-white/[0.03] p-2">
-                <Users2 className="h-4 w-4 text-primary-purple" />
+                <Users2 className="h-4 w-4 text-primary-purple" aria-hidden="true" />
               </div>
               <h3 className="text-2xl font-semibold text-white">Voluntariados</h3>
             </div>

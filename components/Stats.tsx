@@ -60,7 +60,7 @@ export default function Stats() {
                 } transition-all duration-300`}>
                   <Icon className={`w-6 h-6 ${
                     stat.color === 'purple' ? 'text-primary-purple' : 'text-primary-blue'
-                  }`} />
+                  }`} aria-hidden="true" />
                 </div>
                 <h3 className="mb-2 text-3xl font-semibold tracking-[-0.03em] text-white lg:text-4xl">
                   {stat.value}

@@ -56,26 +56,29 @@ export default function Footer() {
                 href="https://github.com/rafael-chuco"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="GitHub de Rafael Chuco"
                 whileHover={{ scale: 1.1, y: -3 }}
                 className="rounded-xl border border-white/10 bg-white/[0.04] p-3 transition-all duration-300 hover:border-primary-purple/40 hover:bg-primary-purple/[0.08]"
               >
-                <Github className="w-5 h-5" />
+                <Github className="w-5 h-5" aria-hidden="true" />
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/rafael-chuco/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="LinkedIn de Rafael Chuco"
                 whileHover={{ scale: 1.1, y: -3 }}
                 className="rounded-xl border border-white/10 bg-white/[0.04] p-3 transition-all duration-300 hover:border-primary-blue/40 hover:bg-primary-blue/[0.08]"
               >
-                <Linkedin className="w-5 h-5" />
+                <Linkedin className="w-5 h-5" aria-hidden="true" />
               </motion.a>
               <motion.a
                 href="mailto:rafael.chuco1908@gmail.com"
+                aria-label="Enviar email a Rafael Chuco"
                 whileHover={{ scale: 1.1, y: -3 }}
                 className="rounded-xl border border-white/10 bg-white/[0.04] p-3 transition-all duration-300 hover:border-primary-purple/40 hover:bg-primary-purple/[0.08]"
               >
-                <Mail className="w-5 h-5" />
+                <Mail className="w-5 h-5" aria-hidden="true" />
               </motion.a>
             </div>
           </div>
