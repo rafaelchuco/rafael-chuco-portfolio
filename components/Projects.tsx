@@ -67,7 +67,7 @@ export default function Projects() {
                 <div className="absolute inset-0 flex items-end justify-between bg-gradient-to-t from-black/90 via-black/50 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <div className="text-sm text-gray-300">Ver proyecto</div>
                   <div className="flex gap-2">
-                    <a
+                    {project.github && (<a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -76,8 +76,8 @@ export default function Projects() {
                       onClick={(e) => e.stopPropagation()}
                     >
                       <Github className="w-5 h-5" aria-hidden="true" />
-                    </a>
-                    {project.demo !== '#' && (
+                    </a>)}
+                    {project.demo && project.demo !== '#' && (
                       <a
                         href={project.demo}
                         target="_blank"
@@ -130,7 +130,7 @@ export default function Projects() {
                     Ver detalle
                     <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
-                  <a
+                  {project.github && (<a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -140,7 +140,7 @@ export default function Projects() {
                   >
                     <Github className="h-4 w-4" aria-hidden="true" />
                     GitHub
-                  </a>
+                  </a>)}
                 </div>
               </div>
             </motion.div>

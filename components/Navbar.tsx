@@ -4,14 +4,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const navLinks = [
-  { href: '/#inicio', label: 'Inicio' },
-  { href: '/#sobre-mi', label: 'Sobre mí' },
-  { href: '/#experiencias', label: 'Experiencias' },
-  { href: '/#proyectos', label: 'Proyectos' },
-  { href: '/#tecnologias', label: 'Tecnologías' },
-  { href: '/contacto', label: 'Contacto' }
-];
+import { navLinks } from '@/lib/data';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,12 +39,12 @@ export default function Navbar() {
           >
             <div className="flex flex-col">
               <span className="text-base font-semibold tracking-[-0.03em] text-white sm:text-lg">Rafael Chuco</span>
-              <span className="hidden text-[11px] uppercase tracking-[0.22em] text-gray-500 sm:block">Full Stack Developer</span>
+              <span className="hidden text-[11px] uppercase tracking-[0.22em] text-gray-500 sm:block">Software · AI · SAP</span>
             </div>
           </motion.a>
 
           {/* Desktop navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link, index) => (
               <motion.a
                 key={link.href}
@@ -82,7 +75,7 @@ export default function Navbar() {
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={isOpen}
-            className="rounded-xl border border-white/10 bg-white/[0.04] p-2 transition-colors hover:bg-white/[0.08] md:hidden"
+            className="rounded-xl border border-white/10 bg-white/[0.04] p-2 transition-colors hover:bg-white/[0.08] lg:hidden"
           >
             {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
           </button>
@@ -97,7 +90,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="mt-4 space-y-4 rounded-3xl border border-white/10 bg-[#11161d]/94 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-2xl md:hidden"
+            className="mt-4 space-y-4 rounded-3xl border border-white/10 bg-[#11161d]/94 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.28)] backdrop-blur-2xl lg:hidden"
           >
             {navLinks.map((link) => (
               <a

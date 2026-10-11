@@ -5,13 +5,14 @@ function normalizeSiteUrl(url: string) {
 }
 
 export const siteConfig = {
-  name: "Rafael Chuco",
-  title: "Rafael Chuco | Desarrollador Full Stack & SAP",
+  name: "Rafael Diego Chuco Yantas",
+  title: "Rafael Diego Chuco Yantas | Software Developer · AI & Automation · SAP",
   titleTemplate: "%s | Rafael Chuco",
   description:
-    "Portfolio de Rafael Chuco — Desarrollador Full Stack especializado en React, Next.js, Django, SAP BTP, ABAP y Fiori. Disponible para freelance y oportunidades en Lima, Perú.",
-  shortDescription: "Desarrollador Full Stack · SAP BTP · React · Next.js · Django",
+    "Portafolio de Rafael Diego Chuco Yantas, estudiante de Diseño y Desarrollo de Software en TECSUP. Inteligencia artificial, automatización, desarrollo de software y soluciones SAP en Lima, Perú.",
+  shortDescription: "Software Developer · AI & Automation · SAP",
   siteUrl: normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl),
+  cv: "/cv-rafael-chuco.pdf",
   email: "rafael.chuco1908@gmail.com",
   phone: "+51927395280",
   location: "Lima, Perú",

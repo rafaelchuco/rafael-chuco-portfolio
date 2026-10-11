@@ -5,13 +5,13 @@ export interface Project {
   description: string;
   longDescription: string;
   tags: string[];
-  image: string;
+  image?: string;
   ogImage: string;
-  github: string;
+  github?: string;
   demo?: string;
   color: "purple" | "blue";
   impact: string;
-  date: string;
+  date?: string;
   featured: boolean;
   category: string;
 }

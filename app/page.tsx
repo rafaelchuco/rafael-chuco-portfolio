@@ -6,6 +6,10 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import TechStack from "@/components/TechStack";
 import Contact from "@/components/Contact";
+import Competencies from "@/components/Competencies";
+import Achievements from "@/components/Achievements";
+import News from "@/components/News";
+import Networking from "@/components/Networking";
 import Footer from "@/components/Footer";
 import { siteConfig } from "@/lib/site";
 
@@ -37,9 +41,13 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Competencies />
       <Experience />
       <Projects />
       <TechStack />
+      <Achievements />
+      <News />
+      <Networking />
       <Contact />
       <Footer />
     </main>

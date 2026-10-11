@@ -10,6 +10,8 @@ type ExperienceItem = {
   period: string;
   area: string;
   details?: string;
+  contributions?: string[];
+  tags?: string[];
   logo?: string;
   logoAlt?: string;
   logoText: string;
@@ -24,6 +26,7 @@ const volunteering: ExperienceItem[] = [
     role: 'Presidente',
     period: 'Diciembre 2025 - Actualidad',
     area: 'Liderazgo estudiantil',
+    details: 'Liderazgo y coordinación de iniciativas académicas, tecnológicas y de integración para la comunidad estudiantil.',
     logo: '/images/LEAD-tecsup.png',
     logoAlt: 'LEAD TECSUP',
     logoText: 'LEAD',
@@ -60,10 +63,12 @@ const volunteering: ExperienceItem[] = [
 const workExperience: ExperienceItem[] = [
   {
     org: 'NTT DATA Europe & Latam',
-    role: 'Consultor SAP ABAP',
+    role: 'Practicante SAP Digital',
     period: 'Marzo 2026 - Actualidad',
     area: 'Lima, Perú · Híbrido',
-    details: 'Contrato de prácticas · SAP Fiori y SAPUI5',
+    details: 'Participación en desarrollo, automatización y soluciones empresariales dentro del ecosistema SAP.',
+    tags: ['SAP', 'ABAP', 'Fiori', 'BTP', 'Automation'],
+    contributions: ['Automatización de pruebas de aplicaciones SAP Fiori.', 'Desarrollo y análisis de soluciones ABAP.', 'Generación automatizada de evidencias.', 'Exploración de SAP BTP, IA y HANA Cloud.', 'Participación en iniciativas de innovación y mejora continua.'],
     logo: '/images/NTT.png',
     logoAlt: 'NTT DATA',
     logoText: 'NTT',
@@ -137,7 +142,9 @@ function ExperienceCard({ item, delay }: { item: ExperienceItem; delay: number }
         </div>
       </div>
 
-      <div className="flex items-center justify-between gap-2">
+      {item.contributions && <ul className="mb-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-gray-400">{item.contributions.map((text) => <li key={text}>{text}</li>)}</ul>}
+      {item.tags && <div className="mb-4 flex flex-wrap gap-2">{item.tags.map((tag) => <span key={tag} className="rounded-full border border-primary-blue/20 bg-primary-blue/10 px-3 py-1 text-xs text-blue-300">{tag}</span>)}</div>}
+      <div className="flex flex-wrap items-center justify-between gap-2">
         <span className={`rounded-full px-3 py-1 text-[11px] font-semibold ${item.chip}`}>{item.area}</span>
         <span className="text-xs text-gray-500">{item.period}</span>
       </div>

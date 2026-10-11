@@ -122,9 +122,9 @@ const sapTechnologies = [
     ),
   },
   {
-    name: 'SAP Connector',
-    category: 'Integration',
-    desc: 'Automaciones e integraciones SAP',
+    name: 'SAP Commerce',
+    category: 'Commerce',
+    desc: 'Plataforma de comercio digital empresarial',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <circle cx="12" cy="24" r="6" stroke="#7C3AED" strokeWidth="2" fill="none"/>
@@ -154,7 +154,7 @@ export default function TechStack() {
           <h2 className="mt-4 mb-6 text-4xl font-semibold tracking-[-0.04em] text-white lg:text-6xl">
             Tecnologías con las que{' '}
             <span className="bg-gradient-to-r from-primary-purple to-primary-blue bg-clip-text text-transparent">
-              construyo
+              construyo soluciones
             </span>
           </h2>
         </motion.div>
@@ -195,7 +195,7 @@ export default function TechStack() {
             </span>
             <div className="h-px flex-1 bg-white/[0.06]" />
           </div>
-          <p className="text-center text-sm text-gray-500">Plataformas, lenguajes y herramientas SAP empresariales</p>
+          <p className="text-center text-sm text-gray-500">Tecnologías empresariales con las que trabajo</p>
         </motion.div>
 
         <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
