@@ -1,5 +1,5 @@
 const groups = [
-  { title: 'Competencias técnicas', skills: ['Inteligencia Artificial', 'Automatización', 'SAP', 'SAP BTP', 'ABAP', 'SAP Fiori', 'Python', 'Java', 'Playwright', 'Git / GitHub'] },
+  { title: 'Competencias técnicas', skills: ['Inteligencia Artificial', 'Automatización', 'SAP', 'SAP BTP', 'ABAP', 'SAP Fiori', 'Python', 'Java', 'Playwright', 'Git / GitHub', 'JavaScript', 'React', 'React Native', 'Vue.js', 'Laravel', 'Django', 'MySQL', 'Oracle Database'] },
   { title: 'Competencias personales', skills: ['Liderazgo', 'Trabajo en equipo', 'Comunicación', 'Resolución de problemas', 'Adaptabilidad', 'Aprendizaje continuo'] },
 ];
 
@@ -12,6 +12,10 @@ export default function Competencies() {
         <h3 className="mb-5 text-xl font-semibold text-white">{group.title}</h3>
         <ul className="flex flex-wrap gap-3">{group.skills.map((skill) => <li key={skill} className="rounded-full border border-primary-purple/25 bg-primary-purple/10 px-4 py-2 text-sm text-violet-300">{skill}</li>)}</ul>
       </div>)}</div>
+      <div className="mt-6 rounded-3xl border border-white/10 bg-white/[0.02] p-6">
+        <h3 className="mb-3 text-lg font-semibold text-white">Formación complementaria e idiomas</h3>
+        <p className="text-sm leading-relaxed text-gray-400">React · DevTalles (2025): desarrollo frontend y consumo de APIs. Inglés intermedio. Experiencia con Windows y Linux Ubuntu.</p>
+      </div>
     </div>
   </section>;
 }

@@ -83,7 +83,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
       <div className="flex flex-1 flex-col space-y-4 p-6">
         <div className="space-y-2">
           <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
-            {project.category}{project.date ? ` · ${project.date}` : ""}
+            {project.category}{(project.period || project.date) ? ` · ${project.period || project.date}` : ""}
           </p>
           <h3 className="text-xl font-semibold tracking-[-0.03em] text-white transition-colors group-hover:text-primary-purple">
             {project.title}

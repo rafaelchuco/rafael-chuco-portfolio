@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Code2, Sparkles, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
-import { siteConfig } from '@/lib/site';
+import CVLinks from '@/components/CVLinks';
 
 const strengths = [
   { text: 'Convertir ideas en productos funcionales con buena base técnica y código limpio.', color: 'bg-primary-purple/15 text-primary-purple' },
@@ -19,7 +19,7 @@ const education = [
     label: 'Educación',
     labelColor: 'text-primary-purple',
     title: 'Diseño y Desarrollo de Software',
-    sub: 'TECSUP · VI ciclo · Lima, Perú',
+    sub: 'TECSUP · 2023 - Actualidad · VI ciclo',
     glow: 'bg-primary-purple',
     border: 'hover:border-primary-purple/30',
     delay: 0.1,
@@ -209,9 +209,7 @@ export default function About() {
             </div>
           ))}
         </div>
-        <div className="mt-8 text-center">
-          <a href={siteConfig.cv} target="_blank" rel="noopener noreferrer" className="inline-flex rounded-xl border border-primary-purple/30 bg-primary-purple/10 px-6 py-3 font-semibold text-white hover:bg-primary-purple/20">Ver CV ↓</a>
-        </div>
+        <CVLinks />
 
         {/* Stats ribbon */}
         <motion.div
@@ -223,7 +221,7 @@ export default function About() {
         >
           <div className="flex items-center gap-2.5">
             <Calendar className="h-4 w-4 text-primary-purple" aria-hidden="true" />
-            <span className="text-sm text-gray-400">2+ años de experiencia</span>
+            <span className="text-sm text-gray-400">Experiencia web y SAP</span>
           </div>
           <div className="h-4 w-px bg-white/10 hidden sm:block" />
           <div className="flex items-center gap-2.5">

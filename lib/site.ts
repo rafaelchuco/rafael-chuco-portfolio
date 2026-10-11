@@ -12,7 +12,11 @@ export const siteConfig = {
     "Portafolio de Rafael Diego Chuco Yantas, estudiante de Diseño y Desarrollo de Software en TECSUP. Inteligencia artificial, automatización, desarrollo de software y soluciones SAP en Lima, Perú.",
   shortDescription: "Software Developer · AI & Automation · SAP",
   siteUrl: normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl),
-  cv: "/cv-rafael-chuco.pdf",
+  cv: "/cv-rafael-chuco-harvard.pdf",
+  cvs: [
+    { label: "Harvard", href: "/cv-rafael-chuco-harvard.pdf", description: "Formato Harvard con experiencia, proyectos y competencias." },
+    { label: "TECSUP", href: "/cv-rafael-chuco-tecsup.pdf", description: "Versión detallada con formación, experiencia y actividades profesionales." },
+  ],
   email: "rafael.chuco1908@gmail.com",
   phone: "+51927395280",
   location: "Lima, Perú",

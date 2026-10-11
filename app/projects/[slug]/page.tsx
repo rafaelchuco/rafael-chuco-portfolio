@@ -145,9 +145,9 @@ export default async function ProjectDetailPage({
               <Tag className="h-3.5 w-3.5" aria-hidden="true" />
               {project.category}
             </span>
-            {project.date && <span className="flex items-center gap-1.5">
+            {(project.period || project.date) && <span className="flex items-center gap-1.5">
               <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
-              {project.date}
+              {project.period || project.date}
             </span>}
           </div>
 

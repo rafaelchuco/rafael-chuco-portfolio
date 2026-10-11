@@ -3,7 +3,7 @@ import SocialLinks from '@/components/SocialLinks';
 const communities = [
   { title: 'LEAD TECSUP', role: 'Presidente · Liderazgo estudiantil', image: '/images/LEAD-tecsup.png', text: 'Coordinación de iniciativas académicas, tecnológicas y de integración.' },
   { title: 'IEEE Computer Society TECSUP', role: 'Director de RR.HH. · Comunidad tecnológica', image: '/images/computer.png', text: 'Gestión de talento y colaboración dentro de la comunidad estudiantil.' },
-  { title: 'IEEE ComSoc TECSUP', role: 'Voluntario de Alianzas Estratégicas', image: '/images/ComSoc.jpeg', text: 'Relaciones institucionales e intercambio con la comunidad tecnológica.' },
+  { title: 'IEEE ComSoc TECSUP', role: 'Director de Alianzas Estratégicas', image: '/images/ComSoc.jpeg', text: 'Relaciones institucionales e intercambio con la comunidad tecnológica.' },
 ];
 export default function Networking() {
   return <section id="networking" className="px-6 py-24 bg-dark-card/30"><div className="mx-auto max-w-7xl">

@@ -284,8 +284,8 @@ export default function Hero() {
             }}
             className="absolute left-2 bottom-[28%] z-10 flex items-center gap-3 rounded-2xl border border-white/10 bg-[#0D1117]/80 px-4 py-3 backdrop-blur-md shadow-xl"
           >
-            <span className="text-2xl font-bold text-white">2+</span>
-            <span className="text-xs leading-tight text-gray-400">años de<br/>experiencia</span>
+            <span className="text-lg font-bold text-white">SAP</span>
+            <span className="text-xs leading-tight text-gray-400">experiencia<br/>empresarial</span>
           </motion.div>
 
           {/* Activity feed */}
@@ -388,9 +388,11 @@ export default function Hero() {
                 download
                 className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07]"
               >
-                Descargar CV
+                Descargar CV Harvard
               </a>
             </motion.div>
+
+            <a href={siteConfig.cvs[1].href} download className="inline-flex items-center gap-2 text-sm text-violet-300 hover:text-white hover:underline">Descargar CV TECSUP ↓</a>
 
             {/* Social links */}
             <motion.div

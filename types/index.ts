@@ -12,6 +12,7 @@ export interface Project {
   color: "purple" | "blue";
   impact: string;
   date?: string;
+  period?: string;
   featured: boolean;
   category: string;
 }
