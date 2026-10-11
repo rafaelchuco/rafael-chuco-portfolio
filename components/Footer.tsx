@@ -14,7 +14,7 @@ export default function Footer() {
           <div>
             <p className="mb-3 text-xs uppercase tracking-[0.2em] text-gray-500">Rafael Chuco</p>
             <h3 className="mb-4 text-3xl font-semibold tracking-[-0.03em] text-white">
-              Rafael Chuco
+              Rafael Diego Chuco Yantas
             </h3>
             <p className="max-w-md text-sm leading-relaxed text-gray-400">
               Desarrollo experiencias web modernas con enfoque en claridad, ejecución y calidad visual. Este portfolio está diseñado para mostrar trabajo real y criterio técnico.
@@ -40,6 +40,7 @@ export default function Footer() {
                   Proyectos
                 </a>
               </li>
+              <li><a href="/#noticias" className="text-gray-400 transition-colors hover:text-white">Noticias</a></li>
               <li>
                 <a href="/contacto" className="text-gray-400 transition-colors hover:text-white">
                   Contacto
@@ -53,7 +54,7 @@ export default function Footer() {
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">Conecta</h4>
             <div className="flex gap-4">
               <motion.a
-                href="https://github.com/rafael-chuco"
+                href="https://github.com/rafaelchuco"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub de Rafael Chuco"

@@ -10,6 +10,8 @@ type ExperienceItem = {
   period: string;
   area: string;
   details?: string;
+  contributions?: string[];
+  tags?: string[];
   logo?: string;
   logoAlt?: string;
   logoText: string;
@@ -24,6 +26,7 @@ const volunteering: ExperienceItem[] = [
     role: 'Presidente',
     period: 'Diciembre 2025 - Actualidad',
     area: 'Liderazgo estudiantil',
+    details: 'Liderazgo y coordinación de iniciativas académicas, tecnológicas y de integración para la comunidad estudiantil.',
     logo: '/images/LEAD-tecsup.png',
     logoAlt: 'LEAD TECSUP',
     logoText: 'LEAD',
@@ -33,7 +36,7 @@ const volunteering: ExperienceItem[] = [
   },
   {
     org: 'IEEE ComSoc TECSUP',
-    role: 'Voluntario de Alianzas Estratégicas',
+    role: 'Director de Alianzas Estratégicas',
     period: 'Marzo 2026 - Actualidad',
     area: 'Relaciones institucionales',
     logo: '/images/ComSoc.jpeg',
@@ -63,7 +66,9 @@ const workExperience: ExperienceItem[] = [
     role: 'Consultor SAP ABAP',
     period: 'Marzo 2026 - Actualidad',
     area: 'Lima, Perú · Híbrido',
-    details: 'Contrato de prácticas · SAP Fiori y SAPUI5',
+    details: 'Contrato de prácticas · SAP Digital · Desarrollo ABAP, validaciones técnicas y automatización.',
+    tags: ['SAP', 'ABAP', 'Fiori', 'BTP', 'Automation'],
+    contributions: ['Análisis y desarrollo de soluciones SAP con ABAP; apoyo en requerimientos técnicos y documentación.', 'Validaciones técnicas, pruebas funcionales y revisión de hallazgos ATC.', 'Colaboración en automatización de procesos y pruebas de SAP Fiori y SAPUI5.', 'Uso de ABAP Development Tools (ADT), SAP AI Launchpad y HANA Cloud en desarrollo y soporte.'],
     logo: '/images/NTT.png',
     logoAlt: 'NTT DATA',
     logoText: 'NTT',
@@ -77,6 +82,7 @@ const workExperience: ExperienceItem[] = [
     period: 'Diciembre 2025 - Marzo 2026',
     area: 'Lima, Perú · Híbrido',
     details: 'Jornada completa · Apps móviles con React Native',
+    contributions: ['Desarrollo y mantenimiento de funcionalidades móviles, componentes reutilizables y navegación.', 'Pruebas funcionales, corrección de incidencias y mejoras de experiencia de usuario.'],
     logo: '/images/CHIRU.png',
     logoAlt: 'Chiru MarketPlace',
     logoText: 'CHIRU',
@@ -90,6 +96,7 @@ const workExperience: ExperienceItem[] = [
     period: 'Abril 2025 - Diciembre 2025',
     area: 'Lima, Perú · Híbrido',
     details: 'Jornada completa · React.js y diseño web adaptable',
+    contributions: ['Interfaces responsivas con React.js, HTML, CSS y JavaScript.', 'Integración de servicios, mantenimiento de vistas y resolución de incidencias del front-end.'],
     logo: '/images/CHIRU.png',
     logoAlt: 'Chiru MarketPlace',
     logoText: 'CHIRU',
@@ -137,7 +144,9 @@ function ExperienceCard({ item, delay }: { item: ExperienceItem; delay: number }
         </div>
       </div>
 
-      <div className="flex items-center justify-between gap-2">
+      {item.contributions && <ul className="mb-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-gray-400">{item.contributions.map((text) => <li key={text}>{text}</li>)}</ul>}
+      {item.tags && <div className="mb-4 flex flex-wrap gap-2">{item.tags.map((tag) => <span key={tag} className="rounded-full border border-primary-blue/20 bg-primary-blue/10 px-3 py-1 text-xs text-blue-300">{tag}</span>)}</div>}
+      <div className="flex flex-wrap items-center justify-between gap-2">
         <span className={`rounded-full px-3 py-1 text-[11px] font-semibold ${item.chip}`}>{item.area}</span>
         <span className="text-xs text-gray-500">{item.period}</span>
       </div>

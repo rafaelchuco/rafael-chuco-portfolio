@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useState } from 'react';
+import SocialLinks from '@/components/SocialLinks';
+import { siteConfig } from '@/lib/site';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,8 +15,9 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted:', formData);
+    const subject = encodeURIComponent(`Consulta de ${formData.name}`);
+    const body = encodeURIComponent(`Nombre: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`);
+    window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -25,7 +28,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="bg-dark-card/30 px-6 py-24">
+    <section id="contacto" className="overflow-hidden bg-dark-card/30 px-6 py-24">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -44,10 +47,11 @@ export default function Contact() {
             </span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-400">
-            Si buscas a alguien que pueda diseñar, desarrollar y ejecutar con criterio, conversemos. Estoy abierto a freelance y oportunidades profesionales.
+            Si buscas a alguien que pueda diseñar, desarrollar y ejecutar con criterio, conversemos. Estoy abierto a proyectos, colaboraciones y nuevas oportunidades.
           </p>
         </motion.div>
 
+        <div className="mb-10 flex justify-center"><SocialLinks /></div>
         <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           {/* Contact info */}
           <motion.div
@@ -69,7 +73,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-400">Email</p>
-                    <p className="font-semibold">rafael.chuco1908@gmail.com</p>
+                    <p className="break-all font-semibold">rafael.chuco1908@gmail.com</p>
                   </div>
                 </a>
 
@@ -171,12 +175,12 @@ export default function Contact() {
                 type="submit"
                 className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary-purple to-primary-blue px-6 py-4 font-semibold text-white shadow-[0_18px_48px_rgba(124,58,237,0.24)] transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_22px_56px_rgba(124,58,237,0.30)]"
               >
-                Enviar mensaje
+                Preparar email
                 <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </button>
 
               <p className="mt-4 text-center text-sm text-gray-400">
-                Respondo en menos de 24 horas ⚡
+                Se abrirá tu aplicación de correo con el mensaje listo para enviar.
               </p>
             </form>
           </motion.div>

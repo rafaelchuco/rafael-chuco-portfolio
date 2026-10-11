@@ -131,3 +131,18 @@ npm run build
 - Email: rafael.chuco1908@gmail.com
 - LinkedIn: [linkedin.com/in/rafael-chuco](https://www.linkedin.com/in/rafael-chuco/)
 - GitHub: [github.com/rafael-chuco](https://github.com/rafael-chuco)
+
+## Perfil profesional y contenido del laboratorio
+
+La portada mantiene la identidad oscura y los degradados morado/azul. Incluye perfil y objetivo profesional, formación (VI ciclo), competencias técnicas y personales, experiencia SAP, voluntariado, seis proyectos, tecnologías, logros, noticias y red profesional.
+
+- Navegación: Inicio, Sobre mí, Experiencia, Proyectos, Noticias y Contacto.
+- `lib/news.ts` reúne dos artículos en español y uno en inglés, con fuente oficial, fecha de publicación y enlace original.
+- `public/cv-rafael-chuco-harvard.pdf` y `public/cv-rafael-chuco-tecsup.pdf` son los dos CV originales proporcionados por Rafael. Ambos se pueden ver y descargar desde Sobre mí; Inicio ofrece las dos descargas. La URL anterior `public/cv-rafael-chuco.pdf` conserva una copia del CV Harvard para mantener los enlaces existentes.
+- El formulario prepara un email mediante `mailto:`. El visitante debe enviarlo desde su aplicación de correo; no hay un servicio de envío en el servidor.
+- Los proyectos admiten imágenes, fechas y repositorios opcionales. Solo se muestran los enlaces proporcionados; las tarjetas usan un recurso visual decorativo cuando no hay capturas.
+- Las comunidades y cargos proceden del perfil existente. Para aportar evidencias adicionales del laboratorio, se pueden añadir fotografías propias de eventos o enlaces públicos de participación. No se incluyeron conversaciones privadas, certificaciones no proporcionadas ni documentos corporativos.
+
+Esta implementación sigue usando Next.js. Los requisitos específicos del editor Wix deben confirmarse con la guía del curso.
+
+Los datos de experiencia, los cargos de voluntariado y los periodos académicos de RestaFest y AnimaPets se actualizaron con ambos CV originales.

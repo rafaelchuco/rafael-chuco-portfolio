@@ -23,6 +23,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 110px;
 }
 
 /* Glassmorphism base */
@@ -64,4 +65,9 @@ html {
 ::selection {
   background: rgba(124, 58, 237, 0.3);
   color: #E6EDF3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Code2, Sparkles, ExternalLink } from 'lucide-react';
 import Image from 'next/image';
+import CVLinks from '@/components/CVLinks';
 
 const strengths = [
   { text: 'Convertir ideas en productos funcionales con buena base técnica y código limpio.', color: 'bg-primary-purple/15 text-primary-purple' },
@@ -18,7 +19,7 @@ const education = [
     label: 'Educación',
     labelColor: 'text-primary-purple',
     title: 'Diseño y Desarrollo de Software',
-    sub: 'TECSUP · Lima, Perú',
+    sub: 'TECSUP · 2023 - Actualidad · VI ciclo',
     glow: 'bg-primary-purple',
     border: 'hover:border-primary-purple/30',
     delay: 0.1,
@@ -30,7 +31,7 @@ const education = [
     label: 'Inglés',
     labelColor: 'text-primary-blue',
     title: 'Conversa Language School',
-    sub: 'TECSUP · Lima, Perú',
+    sub: 'TECSUP · VI ciclo · Lima, Perú',
     glow: 'bg-primary-blue',
     border: 'hover:border-primary-blue/30',
     delay: 0.22,
@@ -84,10 +85,13 @@ export default function About() {
           >
             <div className="space-y-5">
               <h3 className="text-2xl font-semibold leading-snug text-white lg:text-3xl">
-                Especializado en convertir ideas en productos web modernos, con código limpio y foco en experiencia.
+                Soy estudiante de Diseño y Desarrollo de Software en TECSUP y actualmente desarrollo experiencia profesional en el ecosistema SAP.
               </h3>
               <p className="text-base leading-relaxed text-gray-400">
-                Estudio <span className="text-white font-medium">Diseño y Desarrollo de Software en TECSUP</span> y combino esa base con práctica constante — desde interfaces en <span className="text-white font-medium">React y Next.js</span> hasta APIs con <span className="text-white font-medium">Django</span> y soluciones <span className="text-violet-400 font-medium">SAP empresariales</span>.
+                Me interesa especialmente aplicar inteligencia artificial, automatización y desarrollo de software para transformar procesos complejos en soluciones útiles y fáciles de utilizar.
+              </p>
+              <p className="text-base leading-relaxed text-gray-400">
+                Durante mi formación y experiencia he participado en proyectos de automatización, desarrollo de aplicaciones, pruebas de software y tecnologías empresariales, fortaleciendo mis competencias técnicas y mis habilidades de liderazgo, comunicación y trabajo en equipo.
               </p>
             </div>
 
@@ -193,6 +197,20 @@ export default function About() {
           </div>
         </div>
 
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
+          {[
+            { title: 'Objetivo profesional', text: 'Especializarme en inteligencia artificial y automatización, desarrollando agentes y soluciones inteligentes capaces de optimizar procesos empresariales e integrarse con plataformas como SAP.' },
+            { title: 'Formación', text: 'Diseño y Desarrollo de Software · TECSUP · VI ciclo' },
+            { title: 'Áreas de interés', text: 'Inteligencia Artificial · Automatización · SAP · Desarrollo de Software' },
+          ].map((item) => (
+            <div key={item.title} className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-6">
+              <h3 className="mb-3 text-lg font-semibold text-white">{item.title}</h3>
+              <p className="text-sm leading-relaxed text-gray-400">{item.text}</p>
+            </div>
+          ))}
+        </div>
+        <CVLinks />
+
         {/* Stats ribbon */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -203,7 +221,7 @@ export default function About() {
         >
           <div className="flex items-center gap-2.5">
             <Calendar className="h-4 w-4 text-primary-purple" aria-hidden="true" />
-            <span className="text-sm text-gray-400">2+ años de experiencia</span>
+            <span className="text-sm text-gray-400">Experiencia web y SAP</span>
           </div>
           <div className="h-4 w-px bg-white/10 hidden sm:block" />
           <div className="flex items-center gap-2.5">

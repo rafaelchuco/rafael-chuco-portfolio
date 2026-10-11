@@ -4,15 +4,16 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowRight, CheckCircle2, Zap } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { siteConfig } from '@/lib/site';
 
 /* Floating particles */
 const particles = Array.from({ length: 18 }, (_, i) => ({
   id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  size: Math.random() * 3 + 1,
-  duration: Math.random() * 6 + 5,
-  delay: Math.random() * 4,
+  x: (i * 37 + 11) % 100,
+  y: (i * 23 + 7) % 100,
+  size: (i % 3) + 1,
+  duration: (i % 6) + 5,
+  delay: i % 4,
 }));
 
 function Particles() {
@@ -55,14 +56,15 @@ function Typewriter({ text }: { text: string }) {
   const [displayed, setDisplayed] = useState('');
   useEffect(() => {
     let i = 0;
+    let interval: ReturnType<typeof setInterval> | undefined;
     const t = setTimeout(() => {
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         setDisplayed(text.slice(0, i + 1));
         i++;
         if (i >= text.length) clearInterval(interval);
       }, 60);
     }, 900);
-    return () => clearTimeout(t);
+    return () => { clearTimeout(t); if (interval) clearInterval(interval); };
   }, [text]);
   return (
     <span>
@@ -236,7 +238,7 @@ export default function Hero() {
   }
 
   return (
-    <section className="relative overflow-hidden h-screen" onMouseMove={handleMouseMove}>
+    <section className="relative overflow-hidden min-h-screen py-28 lg:py-0 lg:min-h-[900px]" onMouseMove={handleMouseMove}>
       {/* Background gradient effects */}
       <div className="absolute top-0 left-0 w-[700px] h-[700px] bg-primary-purple/[0.07] rounded-full blur-3xl -translate-x-1/4 -translate-y-1/4"></div>
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary-blue/[0.07] rounded-full blur-3xl translate-x-1/4 translate-y-1/4"></div>
@@ -246,7 +248,7 @@ export default function Hero() {
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:72px_72px]"></div>
 
-      <div className="relative z-10 mx-auto grid h-full max-w-7xl px-6 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div className="relative z-10 mx-auto grid h-full max-w-7xl px-6 lg:h-[max(900px,100vh)] lg:pt-24 lg:grid-cols-2 lg:items-center lg:gap-16">
         {/* Left side - Image */}
         <div className="relative order-2 hidden lg:flex lg:order-1 lg:justify-start lg:items-end lg:h-full lg:pt-16">
           {/* Glow behind image — parallax */}
@@ -282,8 +284,8 @@ export default function Hero() {
             }}
             className="absolute left-2 bottom-[28%] z-10 flex items-center gap-3 rounded-2xl border border-white/10 bg-[#0D1117]/80 px-4 py-3 backdrop-blur-md shadow-xl"
           >
-            <span className="text-2xl font-bold text-white">2+</span>
-            <span className="text-xs leading-tight text-gray-400">años de<br/>experiencia</span>
+            <span className="text-lg font-bold text-white">SAP</span>
+            <span className="text-xs leading-tight text-gray-400">experiencia<br/>empresarial</span>
           </motion.div>
 
           {/* Activity feed */}
@@ -322,6 +324,9 @@ export default function Hero() {
           className="order-1 lg:order-2 flex items-center"
         >
           <div className="max-w-2xl space-y-8">
+            <div className="relative h-32 w-32 overflow-hidden rounded-full border border-primary-purple/30 bg-gradient-to-br from-primary-purple/20 to-primary-blue/10 lg:hidden">
+              <Image src="/images/rafael.png" alt="Rafael Diego Chuco Yantas" fill sizes="128px" className="object-cover object-top" priority />
+            </div>
             {/* Name + subtitle */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -329,17 +334,18 @@ export default function Hero() {
               transition={{ delay: 0.25, duration: 0.6 }}
               className="space-y-6"
             >
-              <h1 className="text-5xl font-semibold leading-[0.9] tracking-[-0.04em] sm:text-6xl lg:text-7xl xl:text-[6rem]">
-                <AnimatedName text="Rafael Chuco" />
+              <h1 aria-label="Rafael Diego Chuco Yantas" className="text-4xl font-semibold leading-[1.08] tracking-[-0.04em] sm:text-5xl lg:text-6xl xl:text-7xl">
+                <span className="block"><AnimatedName text="Rafael Diego" /></span>{' '}
+                <span className="block"><AnimatedName text="Chuco Yantas" /></span>
               </h1>
               <div className="flex items-center gap-4">
                 <div className="h-px w-12 bg-gradient-to-r from-primary-blue to-primary-purple" />
                 <p className="text-sm font-medium uppercase tracking-[0.2em] text-white/70">
-                  <Typewriter text="Desarrollador Full Stack" />
+                  <Typewriter text="Software Developer · AI & Automation · SAP" />
                 </p>
               </div>
               <p className="max-w-lg text-lg leading-relaxed text-gray-400 lg:text-xl">
-                Convierto ideas en productos digitales modernos, claros y escalables — desde web full stack hasta soluciones SAP empresariales.
+                Estudiante de Diseño y Desarrollo de Software en TECSUP, enfocado en inteligencia artificial, automatización y desarrollo de soluciones empresariales. Convierto necesidades reales en productos tecnológicos claros, funcionales y escalables.
               </p>
               {/* SAP tech pills */}
               <motion.div
@@ -378,12 +384,15 @@ export default function Hero() {
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
               </a>
               <a
-                href="/contacto"
+                href={siteConfig.cv}
+                download
                 className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.07]"
               >
-                Contáctame
+                Descargar CV Harvard
               </a>
             </motion.div>
+
+            <a href={siteConfig.cvs[1].href} download className="inline-flex items-center gap-2 text-sm text-violet-300 hover:text-white hover:underline">Descargar CV TECSUP ↓</a>
 
             {/* Social links */}
             <motion.div

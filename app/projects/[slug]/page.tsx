@@ -93,7 +93,7 @@ export default async function ProjectDetailPage({
     url: `${siteConfig.siteUrl}/projects/${project.slug}`,
     applicationCategory: "WebApplication",
     operatingSystem: "Web",
-    datePublished: `${project.date}-01`,
+    ...(project.date ? { datePublished: `${project.date}-01` } : {}),
     author: {
       "@type": "Person",
       name: siteConfig.name,
@@ -129,14 +129,14 @@ export default async function ProjectDetailPage({
           {/* Hero image */}
           <div className="relative mb-10 h-72 w-full overflow-hidden rounded-[28px] bg-gradient-to-br from-[#141922] to-[#0f141b] lg:h-96">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.28),transparent_42%),radial-gradient(circle_at_bottom_right,rgba(37,99,235,0.22),transparent_40%)]" />
-            <Image
+            {project.image ? (<Image
               src={project.image}
               alt={`Captura de pantalla principal de ${project.title}`}
               fill
               priority
               sizes="(max-width: 896px) 100vw, 896px"
               className="object-cover"
-            />
+            />) : <div className="absolute inset-0 flex items-center justify-center"><span className="rounded-3xl border border-white/10 bg-primary-purple/20 p-8 text-5xl" aria-hidden="true">💼</span></div>}
           </div>
 
           {/* Meta row */}
@@ -145,10 +145,10 @@ export default async function ProjectDetailPage({
               <Tag className="h-3.5 w-3.5" aria-hidden="true" />
               {project.category}
             </span>
-            <span className="flex items-center gap-1.5">
+            {(project.period || project.date) && <span className="flex items-center gap-1.5">
               <Calendar className="h-3.5 w-3.5" aria-hidden="true" />
-              {project.date}
-            </span>
+              {project.period || project.date}
+            </span>}
           </div>
 
           {/* Title */}
@@ -178,7 +178,7 @@ export default async function ProjectDetailPage({
 
           {/* CTA buttons */}
           <div className="mb-16 flex flex-wrap gap-4">
-            <a
+            {project.github && (<a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
@@ -186,7 +186,7 @@ export default async function ProjectDetailPage({
             >
               <Github className="h-4 w-4" aria-hidden="true" />
               Ver en GitHub
-            </a>
+            </a>)}
             {project.demo && (
               <a
                 href={project.demo}
@@ -217,13 +217,13 @@ export default async function ProjectDetailPage({
                     className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-all duration-300 hover:border-primary-purple/20 hover:bg-white/[0.06]"
                   >
                     <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-[#141922]">
-                      <Image
+                      {rel.image ? <Image
                         src={rel.image}
                         alt={rel.title}
                         fill
                         sizes="56px"
                         className="object-cover"
-                      />
+                      /> : <span className="flex h-full items-center justify-center" aria-hidden="true">💼</span>}
                     </div>
                     <div className="min-w-0">
                       <p className="truncate text-sm font-semibold text-white group-hover:text-primary-purple">

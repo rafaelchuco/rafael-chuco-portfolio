@@ -26,14 +26,14 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,58,237,0.28),transparent_42%),radial-gradient(circle_at_bottom_right,rgba(37,99,235,0.22),transparent_40%)]" />
 
         {/* Imagen del proyecto con next/image */}
-        <Image
+        {project.image ? (<Image
           src={project.image}
           alt={`Captura de pantalla del proyecto ${project.title}`}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
-          onError={undefined}
-        />
+
+        />) : <div className="absolute inset-0 flex items-center justify-center"><span className="rounded-3xl border border-white/10 bg-primary-purple/20 p-8 text-5xl" aria-hidden="true">💼</span></div>}
 
         {/* Fallback icon cuando no hay imagen real */}
         <div className="absolute inset-0 flex items-center justify-center opacity-100 group-has-[img[src]]:opacity-0">
@@ -55,7 +55,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
         <div className="absolute inset-0 flex items-end justify-between bg-gradient-to-t from-black/90 via-black/40 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           <span className="text-sm text-gray-300">Ver proyecto</span>
           <div className="flex gap-2">
-            <a
+            {project.github && (<a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
@@ -63,7 +63,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
               className="rounded-lg bg-white/10 p-2 backdrop-blur-sm transition-colors hover:bg-white/20"
             >
               <Github className="h-4 w-4" aria-hidden="true" />
-            </a>
+            </a>)}
             {project.demo && (
               <a
                 href={project.demo}
@@ -83,7 +83,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
       <div className="flex flex-1 flex-col space-y-4 p-6">
         <div className="space-y-2">
           <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
-            {project.category} · {project.date}
+            {project.category}{(project.period || project.date) ? ` · ${project.period || project.date}` : ""}
           </p>
           <h3 className="text-xl font-semibold tracking-[-0.03em] text-white transition-colors group-hover:text-primary-purple">
             {project.title}
@@ -114,7 +114,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
             Ver detalle
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
-          <a
+          {project.github && (<a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
@@ -123,7 +123,7 @@ export default function ProjectCard({ project, featured = false }: ProjectCardPr
           >
             <Github className="h-4 w-4" aria-hidden="true" />
             GitHub
-          </a>
+          </a>)}
         </div>
       </div>
     </article>
